@@ -12,3 +12,5 @@ STUFF_NOT_TO_UPLOAD/
 __pycache__/
 *.py[cod]
 *$py.class
+
+Untitled.ipynb
