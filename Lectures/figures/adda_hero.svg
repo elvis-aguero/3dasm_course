@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1330" viewBox="0 0 1560 1330">
-  <rect width="1560" height="1330" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1360" viewBox="0 0 1560 1360">
+  <rect width="1560" height="1360" fill="#ffffff"/>
   <g id="enclosure">
     <rect x="300" y="150" rx="320" width="840" height="640" fill="#f1f5f9" stroke="#dbe3ec" stroke-width="3"/>
   </g>
@@ -143,26 +143,42 @@
     <polygon points="720.00,756.40 731.29,805.53 708.71,805.53" fill="#17324d"/>
   </g>
   <g id="ledger-datum">
-    <line x1="465" y1="1239" x2="975" y2="1239" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
+    <line x1="324" y1="1218" x2="1116" y2="1218" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
   </g>
-  <g id="ledger-next-band-arrow">
-    <line x1="720" y1="994" x2="720" y2="1010" stroke="#1a6fb5" stroke-width="5"/>
-  </g>
-  <polygon points="720.00,1035.85 714.00,1009.75 726.00,1009.75" fill="#1a6fb5"/>
-  <g id="ledger-bands">
-    <rect x="505" y="1219" rx="2" width="430" height="17.5" fill="#4285f4" opacity="0.92"/>
-    <rect x="505" y="1185" rx="2" width="430" height="31.5" fill="#2b2f36" opacity="0.92"/>
-    <rect x="505" y="1174" rx="2" width="430" height="8.5" fill="#d97757" opacity="0.92"/>
-    <rect x="505" y="1147" rx="2" width="430" height="24.5" fill="#2b2f36" opacity="0.92"/>
-    <rect x="505" y="1124" rx="2" width="430" height="20.5" fill="#4285f4" opacity="0.92"/>
-    <rect x="505" y="1084" rx="2" width="430" height="37.5" fill="#2b2f36" opacity="0.92"/>
-    <rect x="505" y="1072" rx="2" width="430" height="9.5" fill="#d97757" opacity="0.92"/>
-    <rect x="505" y="1055" rx="2" width="430" height="14.5" fill="#4285f4" opacity="0.92"/>
-    <rect x="505" y="1024" rx="2" width="430" height="28.5" fill="#2b2f36" opacity="0.92"/>
-    <rect x="505" y="952" rx="2" width="430" height="34" fill="none" stroke="#1a6fb5" stroke-width="3.5" stroke-dasharray="10 7"/>
+  <line x1="720" y1="1004" x2="720" y2="1020" stroke="#1a6fb5" stroke-width="5"/>
+  <polygon points="720.00,1045.85 714.00,1019.75 726.00,1019.75" fill="#1a6fb5"/>
+  <g id="ledger-shadows">
+    <rect x="364" y="1198" rx="2" width="208" height="17.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="364" y="1164" rx="2" width="208" height="31.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="364" y="1153" rx="2" width="208" height="8.5" fill="#d97757" opacity="0.92"/>
+    <rect x="364" y="1126" rx="2" width="208" height="24.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="364" y="1103" rx="2" width="208" height="20.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="364" y="1063" rx="2" width="208" height="37.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="364" y="1051" rx="2" width="208" height="9.5" fill="#d97757" opacity="0.92"/>
+    <rect x="364" y="1034" rx="2" width="208" height="14.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="616" y="1198" rx="2" width="208" height="17.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="616" y="1164" rx="2" width="208" height="31.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="616" y="1153" rx="2" width="208" height="8.5" fill="#d97757" opacity="0.92"/>
+    <rect x="616" y="1126" rx="2" width="208" height="24.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="616" y="1103" rx="2" width="208" height="20.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="616" y="1063" rx="2" width="208" height="37.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="616" y="1051" rx="2" width="208" height="9.5" fill="#d97757" opacity="0.92"/>
+    <rect x="616" y="1034" rx="2" width="208" height="14.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="868" y="1198" rx="2" width="208" height="17.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="868" y="1164" rx="2" width="208" height="31.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="868" y="1153" rx="2" width="208" height="8.5" fill="#d97757" opacity="0.92"/>
+    <rect x="868" y="1126" rx="2" width="208" height="24.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="868" y="1103" rx="2" width="208" height="20.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="868" y="1063" rx="2" width="208" height="37.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="868" y="1051" rx="2" width="208" height="9.5" fill="#d97757" opacity="0.92"/>
+    <rect x="868" y="1034" rx="2" width="208" height="14.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="364" y="962" rx="2" width="712" height="34" fill="none" stroke="#1a6fb5" stroke-width="3.5" stroke-dasharray="10 7"/>
   </g>
   <g id="name-strategizer">
     <text x="476" y="371.7" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="28" font-weight="600" text-anchor="middle">strategizer</text>
+    <text x="468" y="1275.23" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="26" font-weight="600" text-anchor="middle">inputs</text>
+    <text x="720" y="1275.23" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="26" font-weight="600" text-anchor="middle">outputs</text>
+    <text x="972" y="1275.23" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="26" font-weight="600" text-anchor="middle">jobs</text>
   </g>
   <g id="name-data-generator">
     <text x="532" y="739.34" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="28" font-weight="600" text-anchor="middle">data</text>
