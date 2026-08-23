@@ -145,9 +145,11 @@
   <g id="ledger-datum">
     <line x1="324" y1="1218" x2="1116" y2="1218" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
   </g>
-  <line x1="720" y1="1004" x2="720" y2="1020" stroke="#1a6fb5" stroke-width="5"/>
+  <g id="ledger-next-row-arrow">
+    <line x1="720" y1="1004" x2="720" y2="1020" stroke="#1a6fb5" stroke-width="5"/>
+  </g>
   <polygon points="720.00,1045.85 714.00,1019.75 726.00,1019.75" fill="#1a6fb5"/>
-  <g id="ledger-shadows">
+  <g id="ledger-bands">
     <rect x="364" y="1198" rx="2" width="208" height="17.5" fill="#4285f4" opacity="0.92"/>
     <rect x="364" y="1164" rx="2" width="208" height="31.5" fill="#2b2f36" opacity="0.92"/>
     <rect x="364" y="1153" rx="2" width="208" height="8.5" fill="#d97757" opacity="0.92"/>
