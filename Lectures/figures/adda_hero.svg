@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1430" viewBox="0 0 1560 1430">
-  <rect width="1560" height="1430" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1330" viewBox="0 0 1560 1330">
+  <rect width="1560" height="1330" fill="#ffffff"/>
   <g id="enclosure">
     <rect x="300" y="150" rx="320" width="840" height="640" fill="#f1f5f9" stroke="#dbe3ec" stroke-width="3"/>
   </g>
@@ -142,32 +142,25 @@
     <polygon points="720.00,865.26 708.71,816.12 731.29,816.12" fill="#17324d"/>
     <polygon points="720.00,756.40 731.29,805.53 708.71,805.53" fill="#17324d"/>
   </g>
-  <g id="ledger-sheets">
-    <polygon points="505.0,1246 851.0,1246 935.0,1220 589.0,1220" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-    <polygon points="505.0,1246 589.0,1220 615.0,1220 531.0,1246" fill="#2b2f36"/>
+  <g id="ledger-datum">
+    <line x1="465" y1="1239" x2="975" y2="1239" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
   </g>
-  <polygon points="505.0,1231 851.0,1231 935.0,1205 589.0,1205" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1231 589.0,1205 615.0,1205 531.0,1231" fill="#4285f4"/>
-  <polygon points="505.0,1216 851.0,1216 935.0,1190 589.0,1190" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1216 589.0,1190 615.0,1190 531.0,1216" fill="#2b2f36"/>
-  <polygon points="505.0,1201 851.0,1201 935.0,1175 589.0,1175" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1201 589.0,1175 615.0,1175 531.0,1201" fill="#d97757"/>
-  <polygon points="505.0,1186 851.0,1186 935.0,1160 589.0,1160" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1186 589.0,1160 615.0,1160 531.0,1186" fill="#2b2f36"/>
-  <polygon points="505.0,1171 851.0,1171 935.0,1145 589.0,1145" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1171 589.0,1145 615.0,1145 531.0,1171" fill="#4285f4"/>
-  <polygon points="505.0,1156 851.0,1156 935.0,1130 589.0,1130" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1156 589.0,1130 615.0,1130 531.0,1156" fill="#2b2f36"/>
-  <polygon points="505.0,1141 851.0,1141 935.0,1115 589.0,1115" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1141 589.0,1115 615.0,1115 531.0,1141" fill="#2b2f36"/>
-  <polygon points="505.0,1126 851.0,1126 935.0,1100 589.0,1100" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1126 589.0,1100 615.0,1100 531.0,1126" fill="#d97757"/>
-  <polygon points="505.0,1111 851.0,1111 935.0,1085 589.0,1085" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1111 589.0,1085 615.0,1085 531.0,1111" fill="#4285f4"/>
-  <polygon points="505.0,1096 851.0,1096 935.0,1070 589.0,1070" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1096 589.0,1070 615.0,1070 531.0,1096" fill="#2b2f36"/>
-  <polygon points="505.0,1081 851.0,1081 935.0,1055 589.0,1055" fill="#ffffff" stroke="#cfd8e2" stroke-width="1.5"/>
-  <polygon points="505.0,1081 589.0,1055 615.0,1055 531.0,1081" fill="#4285f4"/>
+  <g id="ledger-next-band-arrow">
+    <line x1="720" y1="994" x2="720" y2="1010" stroke="#1a6fb5" stroke-width="5"/>
+  </g>
+  <polygon points="720.00,1035.85 714.00,1009.75 726.00,1009.75" fill="#1a6fb5"/>
+  <g id="ledger-bands">
+    <rect x="505" y="1219" rx="2" width="430" height="17.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="505" y="1185" rx="2" width="430" height="31.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="505" y="1174" rx="2" width="430" height="8.5" fill="#d97757" opacity="0.92"/>
+    <rect x="505" y="1147" rx="2" width="430" height="24.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="505" y="1124" rx="2" width="430" height="20.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="505" y="1084" rx="2" width="430" height="37.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="505" y="1072" rx="2" width="430" height="9.5" fill="#d97757" opacity="0.92"/>
+    <rect x="505" y="1055" rx="2" width="430" height="14.5" fill="#4285f4" opacity="0.92"/>
+    <rect x="505" y="1024" rx="2" width="430" height="28.5" fill="#2b2f36" opacity="0.92"/>
+    <rect x="505" y="952" rx="2" width="430" height="34" fill="none" stroke="#1a6fb5" stroke-width="3.5" stroke-dasharray="10 7"/>
+  </g>
   <g id="name-strategizer">
     <text x="476" y="371.7" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="28" font-weight="600" text-anchor="middle">strategizer</text>
   </g>
@@ -188,9 +181,4 @@
   <g id="name-debugger">
     <text x="902" y="748.18" fill="#2b2f36" font-family="Avenir Next, Avenir, Helvetica Neue, sans-serif" font-size="28" font-weight="600" text-anchor="middle">debugger</text>
   </g>
-  <g id="ledger-next-sheet">
-    <polygon points="505.0,988 851.0,988 935.0,962 589.0,962" fill="none" stroke="#1a6fb5" stroke-width="3.5" stroke-dasharray="10 7"/>
-    <line x1="720" y1="1010" x2="720" y2="1032" stroke="#1a6fb5" stroke-width="5"/>
-  </g>
-  <polygon points="720.00,1059.85 714.00,1033.75 726.00,1033.75" fill="#1a6fb5"/>
 </svg>
