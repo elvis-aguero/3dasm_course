@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="1560" height="1360" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1560 1360">
-  <!-- Generator: Adobe Illustrator 29.8.5, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="1560" height="1360" viewBox="0 0 1560 1360" version="1.1">
   <defs>
     <linearGradient id="linear-gradient" x1="322.92" y1="1154.98" x2="326.92" y2="1158.48" gradientTransform="translate(-273.29 3755.68) scale(2.99 -2.99)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#08b962"/>
@@ -32,25 +30,25 @@
     <path d="M620,150h200c176.73,0,320,143.27,320,320h0c0,176.73-143.27,320-320,320h-200c-176.73,0-320-143.27-320-320h0c0-176.73,143.27-320,320-320Z" fill="#f1f5f9" stroke="#dbe3ec" stroke-width="3"/>
   </g>
   <g id="edge-strategizer-to-literature-reviewer">
-    <path d="M542.04,422.69c32.53-22.63,64.08-46.54,94.64-71.74" fill="none" stroke="#6b7684" stroke-linecap="round" stroke-width="5"/>
+    <path d="M542.04,422.69c32.53-22.63,64.08-46.54,94.64-71.74" fill="none" stroke="#6b7684" stroke-width="5" stroke-linecap="round"/>
   </g>
   <g id="edge-strategizer-to-data-generator">
-    <path d="M496.19,541.35c.75,2.38,1.51,4.76,2.28,7.13" fill="none" stroke="#6b7684" stroke-linecap="round" stroke-width="5"/>
+    <path d="M496.19,541.35c.75,2.38,1.51,4.76,2.28,7.13" fill="none" stroke="#6b7684" stroke-width="5" stroke-linecap="round"/>
   </g>
   <g id="edge-strategizer-to-implementer">
-    <path d="M555.19,462.15c100.09-6.55,199.34-19.4,297.76-38.56" fill="none" stroke="#6b7684" stroke-linecap="round" stroke-width="5"/>
+    <path d="M555.19,462.15c100.09-6.55,199.34-19.4,297.76-38.56" fill="none" stroke="#6b7684" stroke-width="5" stroke-linecap="round"/>
   </g>
   <g id="edge-strategizer-to-critic">
-    <path d="M550.86,489.48c123.6,35.53,249.16,62.52,376.69,80.98" fill="none" stroke="#6b7684" stroke-linecap="round" stroke-width="5"/>
+    <path d="M550.86,489.48c123.6,35.53,249.16,62.52,376.69,80.98" fill="none" stroke="#6b7684" stroke-width="5" stroke-linecap="round"/>
   </g>
   <g id="edge-data-generator-to-debugger">
-    <path d="M599.88,644.5c71.53,7.63,143.25,11.1,215.14,10.39" fill="none" stroke="#6b7684" stroke-linecap="round" stroke-width="5"/>
+    <path d="M599.88,644.5c71.53,7.63,143.25,11.1,215.14,10.39" fill="none" stroke="#6b7684" stroke-width="5" stroke-linecap="round"/>
   </g>
   <g id="edge-data-generator-to-literature-reviewer">
-    <path d="M571.6,579.73c43.06-65.41,78.58-134.61,106.56-207.6" fill="none" stroke="#6b7684" stroke-dasharray="9 6" stroke-linecap="round" stroke-width="3.5"/>
+    <path d="M571.6,579.73c43.06-65.41,78.58-134.61,106.56-207.6" fill="none" stroke="#6b7684" stroke-width="3.5" stroke-dasharray="9 6" stroke-linecap="round"/>
   </g>
   <g id="edge-implementer-to-literature-reviewer">
-    <path d="M888.11,367.33c-32.09-19.07-65.4-35.58-99.93-49.54" fill="none" stroke="#6b7684" stroke-dasharray="9 6" stroke-linecap="round" stroke-width="3.5"/>
+    <path d="M888.11,367.33c-32.09-19.07-65.4-35.58-99.93-49.54" fill="none" stroke="#6b7684" stroke-width="3.5" stroke-dasharray="9 6" stroke-linecap="round"/>
   </g>
   <g id="arrowheads">
     <polygon points="654.5 336.26 633.38 363.73 623.5 351.76 654.5 336.26" fill="#6b7684"/>
@@ -94,85 +92,115 @@
   <g id="input-problem-statement">
     <circle cx="140" cy="470" r="58" fill="#fff" stroke="#d8dee6" stroke-width="2.4"/>
     <path d="M163.96,487.23h-47.93c-2.23,0-4.04-1.81-4.04-4.04v-26.39c0-2.23,1.81-4.04,4.04-4.04h47.93c2.23,0,4.04,1.81,4.04,4.04v26.39c0,2.23-1.8,4.04-4.03,4.04h0ZM125.46,479.15v-10.5l5.39,6.73,5.38-6.73v10.5h5.39v-18.3h-5.39l-5.38,6.73-5.39-6.73h-5.39v18.31h5.39ZM161.54,470h-5.39v-9.15h-5.38v9.15h-5.39l8.08,9.42,8.08-9.42Z"/>
-    <text transform="translate(88.57 575.37)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="26" font-weight="300" isolation="isolate"><tspan x="0" y="0">problem</tspan></text>
-    <text transform="translate(79.89 607.09)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="26" font-weight="300" isolation="isolate"><tspan x="0" y="0">statement</tspan></text>
+    <text transform="translate(88.57 575.37)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="26" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">problem</tspan>
+    </text>
+    <text transform="translate(79.89 607.09)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="26" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">statement</tspan>
+    </text>
   </g>
   <g id="arrow-input">
-    <path d="M199.05,469.3c31.25-.66,62.51-1.32,93.77-1.98" fill="none" stroke="#2b2f36" stroke-linecap="round" stroke-width="8"/>
+    <path d="M199.05,469.3c31.25-.66,62.51-1.32,93.77-1.98" fill="none" stroke="#2b2f36" stroke-width="8" stroke-linecap="round"/>
     <polygon points="310.62 466.95 284.65 478.07 284.51 456.92 310.62 466.95" fill="#2b2f36"/>
   </g>
   <g id="arrow-output">
-    <path d="M1140,470h166.44" fill="none" stroke="#2b2f36" stroke-linecap="round" stroke-width="8"/>
+    <path d="M1140,470h166.44" fill="none" stroke="#2b2f36" stroke-width="8" stroke-linecap="round"/>
     <polygon points="1337.94 470 1291.88 480.58 1291.88 459.42 1337.94 470" fill="#2b2f36"/>
   </g>
   <g id="output-notebook">
     <circle cx="1400" cy="470" r="60" fill="#fff" stroke="#d8dee6" stroke-width="2.4"/>
     <path d="M1388.3,494.65c0,2.4-1.93,4.35-4.31,4.35-2.38,0-4.31-1.95-4.31-4.35s1.93-4.35,4.31-4.35c2.38,0,4.31,1.95,4.31,4.35ZM1420.74,444.45c0,1.9-1.53,3.45-3.42,3.45,0,0,0,0,0,0-1.89,0-3.42-1.54-3.42-3.45h0c0-1.91,1.53-3.45,3.42-3.45,0,0,0,0,0,0,1.89,0,3.42,1.54,3.42,3.45h0ZM1383.06,449.06c0,1.41-1.13,2.55-2.53,2.55-1.4,0-2.53-1.14-2.53-2.55,0-1.41,1.13-2.55,2.53-2.55,1.4,0,2.53,1.14,2.53,2.55ZM1400.79,452.73c9.11,0,17.06,3.34,21.19,8.27-1.53-4.42-4.4-8.26-8.2-10.99-3.79-2.71-8.33-4.17-12.99-4.18-4.66,0-9.2,1.46-12.99,4.18-3.8,2.73-6.67,6.57-8.2,10.99,4.14-4.93,12.09-8.27,21.2-8.27ZM1400.8,484.86c-9.11,0-17.06-3.34-21.19-8.28,1.53,4.42,4.4,8.26,8.2,10.99,3.79,2.72,8.33,4.18,12.99,4.18,4.66,0,9.21-1.46,12.99-4.18,3.8-2.73,6.67-6.57,8.2-10.99-4.14,4.94-12.09,8.28-21.2,8.28h0Z" fill="#f37626"/>
-    <text transform="translate(1290.43 583.23)" fill="#2b2f36" font-family="Menlo-Bold, Menlo" font-size="26" font-weight="700" isolation="isolate"><tspan x="0" y="0">pipeline.ipynb</tspan></text>
+    <text transform="translate(1290.43 583.23)" fill="#2b2f36" font-family="Menlo-Bold, Menlo" font-size="26" font-weight="700" isolation="isolate">
+      <tspan x="0" y="0">pipeline.ipynb</tspan>
+    </text>
   </g>
   <g id="ledger-name">
-    <text transform="translate(612.8 921.36)" fill="#17324d" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="32" font-weight="300" isolation="isolate"><tspan x="0" y="0">f3dasm record</tspan></text>
+    <text transform="translate(612.8 921.36)" fill="#17324d" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="32" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">f3dasm record</tspan>
+    </text>
   </g>
   <g id="arrow-graph-to-ledger">
-    <path d="M720,824v41.66" fill="none" stroke="#17324d" stroke-linecap="round" stroke-width="11"/>
+    <path d="M720,824v41.66" fill="none" stroke="#17324d" stroke-width="11" stroke-linecap="round"/>
     <polygon points="720 899.26 708.71 850.12 731.29 850.12 720 899.26" fill="#17324d"/>
     <polygon points="720 790.4 731.29 839.53 708.71 839.53 720 790.4" fill="#17324d"/>
   </g>
   <g id="ledger-datum">
-    <line x1="324" y1="1218" x2="1116" y2="1218" fill="none" stroke="#17324d" stroke-linecap="round" stroke-width="10"/>
+    <line x1="324" y1="1218" x2="1116" y2="1218" fill="none" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
   </g>
   <g id="ledger-next-row-arrow">
     <line x1="720" y1="1004" x2="720" y2="1020" fill="none" stroke="#1a6fb5" stroke-width="5"/>
   </g>
   <polygon points="720 1045.85 714 1019.75 726 1019.75 720 1045.85" fill="#1a6fb5"/>
   <g id="ledger-bands">
-    <rect x="364" y="1198" width="208" height="17.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1164" width="208" height="31.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1153" width="208" height="8.5" rx="2" ry="2" fill="#d97757" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1126" width="208" height="24.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1103" width="208" height="20.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1063" width="208" height="37.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1051" width="208" height="9.5" rx="2" ry="2" fill="#d97757" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="1034" width="208" height="14.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1198" width="208" height="17.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1164" width="208" height="31.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1153" width="208" height="8.5" rx="2" ry="2" fill="#d97757" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1126" width="208" height="24.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1103" width="208" height="20.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1063" width="208" height="37.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1051" width="208" height="9.5" rx="2" ry="2" fill="#d97757" isolation="isolate" opacity=".92"/>
-    <rect x="616" y="1034" width="208" height="14.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1198" width="208" height="17.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1164" width="208" height="31.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1153" width="208" height="8.5" rx="2" ry="2" fill="#d97757" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1126" width="208" height="24.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1103" width="208" height="20.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1063" width="208" height="37.5" rx="2" ry="2" fill="#2b2f36" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1051" width="208" height="9.5" rx="2" ry="2" fill="#d97757" isolation="isolate" opacity=".92"/>
-    <rect x="868" y="1034" width="208" height="14.5" rx="2" ry="2" fill="#4285f4" isolation="isolate" opacity=".92"/>
-    <rect x="364" y="962" width="712" height="34" rx="2" ry="2" fill="none" stroke="#1a6fb5" stroke-dasharray="10 7" stroke-width="3.5"/>
+    <rect x="364" y="1198" rx="2" ry="2" width="208" height="17.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1164" rx="2" ry="2" width="208" height="31.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1153" rx="2" ry="2" width="208" height="8.5" fill="#d97757" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1126" rx="2" ry="2" width="208" height="24.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1103" rx="2" ry="2" width="208" height="20.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1063" rx="2" ry="2" width="208" height="37.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1051" rx="2" ry="2" width="208" height="9.5" fill="#d97757" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="1034" rx="2" ry="2" width="208" height="14.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1198" rx="2" ry="2" width="208" height="17.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1164" rx="2" ry="2" width="208" height="31.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1153" rx="2" ry="2" width="208" height="8.5" fill="#d97757" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1126" rx="2" ry="2" width="208" height="24.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1103" rx="2" ry="2" width="208" height="20.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1063" rx="2" ry="2" width="208" height="37.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1051" rx="2" ry="2" width="208" height="9.5" fill="#d97757" opacity=".92" isolation="isolate"/>
+    <rect x="616" y="1034" rx="2" ry="2" width="208" height="14.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1198" rx="2" ry="2" width="208" height="17.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1164" rx="2" ry="2" width="208" height="31.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1153" rx="2" ry="2" width="208" height="8.5" fill="#d97757" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1126" rx="2" ry="2" width="208" height="24.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1103" rx="2" ry="2" width="208" height="20.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1063" rx="2" ry="2" width="208" height="37.5" fill="#2b2f36" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1051" rx="2" ry="2" width="208" height="9.5" fill="#d97757" opacity=".92" isolation="isolate"/>
+    <rect x="868" y="1034" rx="2" ry="2" width="208" height="14.5" fill="#4285f4" opacity=".92" isolation="isolate"/>
+    <rect x="364" y="962" rx="2" ry="2" width="712" height="34" fill="none" stroke="#1a6fb5" stroke-width="3.5" stroke-dasharray="10 7"/>
   </g>
   <g id="name-strategizer">
-    <text transform="translate(407.27 371.7)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">strategizer</tspan></text>
-    <text transform="translate(415.96 1275.23)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="26" font-weight="300" isolation="isolate"><tspan x="0" y="0">inputs.csv</tspan></text>
-    <text transform="translate(659.1 1275.23)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="26" font-weight="300" isolation="isolate"><tspan x="0" y="0">outputs.csv</tspan></text>
-    <text transform="translate(920.56 1275.23)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="26" font-weight="300" isolation="isolate"><tspan x="0" y="0">jobs.csv</tspan></text>
+    <text transform="translate(407.27 371.7)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">strategizer</tspan>
+    </text>
+    <text transform="translate(415.96 1275.23)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="26" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">inputs.csv</tspan>
+    </text>
+    <text transform="translate(659.1 1275.23)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="26" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">outputs.csv</tspan>
+    </text>
+    <text transform="translate(920.56 1275.23)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="26" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">jobs.csv</tspan>
+    </text>
   </g>
   <g id="name-data-generator">
-    <text transform="translate(527.1 716.34)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">data</tspan></text>
-    <text transform="translate(492.06 750.5)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">generator</tspan></text>
+    <text transform="translate(527.1 716.34)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">data</tspan>
+    </text>
+    <text transform="translate(492.06 750.5)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">generator</tspan>
+    </text>
   </g>
   <g id="name-literature-reviewer">
-    <text transform="translate(647.44 188.38)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">literature</tspan></text>
-    <text transform="translate(649.76 222.54)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">reviewer</tspan></text>
+    <text transform="translate(647.44 188.38)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">literature</tspan>
+    </text>
+    <text transform="translate(649.76 222.54)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">reviewer</tspan>
+    </text>
   </g>
   <g id="name-implementer">
-    <text transform="translate(860.6 506.18)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">implementer</tspan></text>
+    <text transform="translate(860.6 506.18)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">implementer</tspan>
+    </text>
   </g>
   <g id="name-critic">
-    <text transform="translate(988.98 663.18)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">critic</tspan></text>
+    <text transform="translate(988.98 663.18)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">critic</tspan>
+    </text>
   </g>
   <g id="name-debugger">
-    <text transform="translate(837.22 748.18)" fill="#2b2f36" font-family="AvenirNext-DemiBold, &apos;Avenir Next&apos;" font-size="28" font-weight="300" isolation="isolate"><tspan x="0" y="0">debugger</tspan></text>
+    <text transform="translate(837.22 748.18)" fill="#2b2f36" font-family="AvenirNext-DemiBold, 'Avenir Next'" font-size="28" font-weight="300" isolation="isolate">
+      <tspan x="0" y="0">debugger</tspan>
+    </text>
   </g>
 </svg>
