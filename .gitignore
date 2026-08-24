@@ -14,3 +14,13 @@ __pycache__/
 *$py.class
 
 Untitled.ipynb
+
+# draw.io desktop writes a dot-prefixed backup next to the file it is editing
+.$*.drawio.bkp
+*.drawio.bkp
+
+# macOS + JupyterLab local state, never part of the course material
+.DS_Store
+.jupyter/
+.jupyter_ystore.db
+.virtual_documents/
