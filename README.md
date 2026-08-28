@@ -119,7 +119,7 @@ pip install torch torchvision –index-url https://download.pytorch.org/whl/cu12
 6. Install f3dasm package:
 
 ```
-pip install f3dasm==2.0.2
+pip install f3dasm==2.2.3
 ```
 
 7. Install optuna package:
