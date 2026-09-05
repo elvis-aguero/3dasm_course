@@ -29,7 +29,7 @@ CRITICAL, MAJOR or MINOR), **Verdict**, **Numbers**, **Retrospective**, and some
 
 ## A. The better design sitting in the run's own data
 
-`REVIEW_A_better_design_in_own_ledger.md` — run `20260729T012952`, **call 4 of 9**.
+`REVIEW_A_better_design_in_own_ledger.md`, run `20260729T012952`, **call 4 of 9**.
 
 **The run.** The smallest-budget run in its batch, 93 evaluations and $23.10. It proposed no new
 design family; all three of its hypotheses were refinements of two existing ones, the chiral
@@ -56,13 +56,13 @@ acknowledged candidate rather than quietly dropped.
 
 ## B. A test that could not have failed
 
-`REVIEW_B_test_that_could_not_fail.md` — run `20260814T015148`, **call 1 of 3**.
+`REVIEW_B_test_that_could_not_fail.md`, run `20260814T015148`, **call 1 of 3**.
 
 **The run.** This is the run that discovered contact had never engaged. Two mechanisms that both
 depend on something touching something else: a secondary elastic "stop" meant to engage after
 the primary member reaches its strain limit, and a shallow conical ground disc meant to change
 where the coil bears. 33 evaluations. **All 21 finite stress values it produced were the same
-number, `0.6071319332676687`, bit-identical** — the incumbent rectangle. Nothing had ever
+number, `0.6071319332676687`, bit-identical**, the incumbent rectangle. Nothing had ever
 touched, so every converged design was the baseline wearing a new pre-processor.
 
 **What the deliverable claimed at call 1.** That an 18-point sweep of the conical disc had found
@@ -71,7 +71,7 @@ and its mirror SUPPORTED.
 
 **What the critic did.** It read the sweep's own derivation. The campaign had computed its
 onset-of-contact at `cone_rise_ratio = 0.19943`, applied a 0.5 safety margin, and capped the
-swept range at 0.0997 — sweeping only the half of the parameter furthest from ever making
+swept range at 0.0997, sweeping only the half of the parameter furthest from ever making
 contact. At the most extreme point tested, 1.66 mm of a 3.324 mm standoff still remained, and an
 independent diagnostic showed the gap never narrowed. The contact model is hard and separable,
 so pressure is exactly zero until the gap reaches zero. A flat result at all 18 points was
