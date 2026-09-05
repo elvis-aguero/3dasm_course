@@ -1,0 +1,26 @@
+model: claude-sonnet-5
+backend: claude
+# Default is Sonnet, i.e. "the rest of the roster" (implementer, critic).
+# strategizer and datagenerator are overridden to opus, and literature_reviewer
+# to a local Ollama-served Qwen3.8, both directly in run.py — see its own
+# comment for why each override lives where it does.
+
+budget: "12:00:00"
+mem_cap: 12884901888  # 12 GB
+review_statement: false
+
+runtime:
+  # Full per-delegation reasoning/tool-call/tool-result transcripts — extra
+  # debugging visibility for this run.
+  debug: true
+
+evaluator:
+  # The DataGeneratorAgent will write this file during the run.
+  entrypoint: "workspace/data_generator.py:SupercompressibleDataGenerator"
+
+required_deliverables: []
+# pipeline.ipynb is unconditionally required by the runtime regardless of this
+# list (see f3dasm agentic_runtime._missing_deliverables) — it is the single
+# deliverable, both the human-readable writeup and the lazy reproduction the
+# gate re-executes. No aux deliverable (e.g. a standalone replicate.py) is
+# required here.
