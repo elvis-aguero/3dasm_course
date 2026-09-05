@@ -6,13 +6,8 @@ The critic is one of five agents. It cannot write or execute anything: its tools
 `Glob`, `Grep` and read-only access to the evaluation ledger. It is invoked when the
 strategizer decides the run is finished and calls `Done(summary)`. That call does not close
 the run; it requests closure. `CriticGateMixin` puts the deliverable to the critic, which
-returns one of three verdicts.
-
-| verdict | effect |
-|---|---|
-| `PASS` | the run may close |
-| `REVISE` | the strategizer goes back to work and calls `Done()` again later |
-| `REJECT` | the same, with a CRITICAL finding attached |
+answers `PASS`, `REVISE` or `REJECT`. Only a `PASS` lets the run close; the other two send the
+strategizer back to work, `REJECT` with a CRITICAL finding attached.
 
 The deliverable under review is always `pipeline.ipynb`, the notebook the run wrote. The gate
 re-executes it, so the critic reads both the prose and the code that produced the numbers, and
@@ -85,11 +80,3 @@ hypothesis file and against the analysis cell beneath it. The third review found
 MAJOR finding but returned `NOTED` rather than `PASS`, noting that only a `Done()`-triggered
 gate review can actually close a run. Both hypotheses stand as inconclusive in the study's
 record.
-
----
-
-## Why these two
-
-A needs no physics: higher is better, and the answer was in the run's own spreadsheet. B needs
-some contact mechanics but carries the further lesson, and one that travels well past agentic
-workflows: ask whether the experiment could have come out any other way.
