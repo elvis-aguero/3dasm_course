@@ -16,7 +16,7 @@
 <text x="382" y="30" text-anchor="end" font-family="'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace" font-size="10.5" font-weight="700" letter-spacing="1.4" fill="#6B6558">ENTRY</text>
 <text x="20" y="70" font-family="'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace" font-size="11" font-weight="700" letter-spacing="1" fill="#6B6558">BACKEND <tspan font-weight="400" fill="#231F1B">claude · haiku</tspan></text>
 <rect x="12" y="83" width="376" height="27" rx="4" fill="#F1ECDF" stroke="#DCD4BF" stroke-width="1"/>
-<text x="20" y="96" font-family="'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace" font-size="11" fill="#5B564C">Solves the problem of the statement.</text>
+<text x="20" y="96" font-family="'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace" font-size="11" fill="#5B564C">(no description)</text>
 <text x="20" y="121" font-family="'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace" font-size="11" font-weight="700" letter-spacing="1" fill="#6B6558">TOOLS (3)</text>
 <text x="20" y="141" font-family="'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace" font-size="12"><tspan fill="#6B6558" font-weight="400">Default</tspan><tspan fill="#6B6558">, </tspan><tspan fill="#6B6558" font-weight="400">Done</tspan><tspan fill="#6B6558">, </tspan><tspan fill="#6B6558" font-weight="400">ConsultLiterature</tspan></text>
 </g></g>

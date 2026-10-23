@@ -1,28 +1,29 @@
-"""Stopping-distance model: mean and standard deviation of y (m) at speed x (m/s).
+"""Stopping-distance model for a new driver.
 
-Fitted on 30 Measure() calls over x in [3, 82]:
-  mu(x)      = a*x + b*x^2                  (least squares, no intercept)
-  sd(x)^2    = c0 + c1*mu(x)                (least squares on squared residuals)
-Leave-one-out check on the 30 points: 93% of held-out y fall inside mu +- 1.96 sd.
+Mean:  mu(x) = a*x + b*x**2           (reaction-distance + braking-distance shape)
+Scale: sd(x) = c + d*x                (noise standard deviation grows with speed)
+
+Fitted on 30 Measure() calls (x in [3, 82]; 4 replicates at x=14, 3 each at x=50 and x=82).
+Coverage: mu +- 1.96*sd is intended to contain ~95% of drivers for x in [3, 82].
 """
+
 import math
 
-A_MEAN = 1.44665771
-B_MEAN = 0.09940101
-C0_VAR = 1.69086126
-C1_VAR = 1.48442145
+A_LIN = 1.73226001
+B_QUAD = 0.09520235
+C_SD0 = 3.99123636
+D_SD1 = 0.30362472
 
 
 def predict(x):
-    """Return (mu, sd) of stopping distance y in metres at speed x in m/s."""
+    """Return (mu, sd) of the stopping distance y (m) at speed x (m/s)."""
     x = float(x)
-    mu = A_MEAN * x + B_MEAN * x * x
-    var = C0_VAR + C1_VAR * mu
-    sd = math.sqrt(max(var, 1e-6))
-    return mu, sd
+    mu = A_LIN * x + B_QUAD * x * x
+    sd = C_SD0 + D_SD1 * x
+    return mu, max(sd, 0.5)
 
 
 if __name__ == "__main__":
-    for speed in (3, 10, 30, 50, 70, 82):
-        m, s = predict(speed)
-        print(f"x={speed:5.1f}  mu={m:8.2f}  sd={s:6.2f}  95% band=[{m - 1.96 * s:8.2f}, {m + 1.96 * s:8.2f}]")
+    for v in (3, 14, 50, 82):
+        m, s = predict(v)
+        print(f"x={v:>3}: mu={m:8.2f} m  sd={s:6.2f} m  95% band=[{m - 1.96 * s:8.2f}, {m + 1.96 * s:8.2f}]")

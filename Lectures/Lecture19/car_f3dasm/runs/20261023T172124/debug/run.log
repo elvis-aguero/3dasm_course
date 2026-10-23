@@ -1,5 +1,0 @@
-[13:21:24] INFO Run starting: model=claude-haiku-4-5-20251001, study=/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture19/car_f3dasm
-[13:21:24] WARNING node analyst holds Default: it receives the CLI's full built-in tool set. It can bypass Delegate (Task/Agent), the literature rate limiter and cache (WebSearch/WebFetch), the reproduction gate (NotebookEdit) and FollowUp (AskUserQuestion). Informational; nothing is blocked.
-[13:21:24] INFO Invoking graph
-[13:21:24] INFO memory watcher on: cap 4.0 GB per delegation, job limit none found, every 5 s
-[13:25:33] INFO Run complete. Evals: 0. Tokens: fresh 58 / cache read 757,148 / cache write 37,933 / output 15,095. Cost: $0.0170. pipeline.ipynb was NEVER WRITTEN — the agent never called WriteDeliverable().

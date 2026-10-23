@@ -10,7 +10,7 @@ stopping distance in m). Load it with `ExperimentData.from_file`, and take the t
 | M2 | `a, b` by `numpy.linalg.lstsq` of `y/x` on the columns `[1, x]`, training rows. `c` = `numpy.std` of the residuals of `y/x` (ddof=0). Mean `a*x + b*x**2`, standard deviation `c*x` |
 | Assessment | On the test rows: `coverage`, the fraction of `y` inside mean +- 1.96 standard deviation; `nll`, the mean of minus the log of the normal density of `y` |
 
-## Deliverables (folder `results/`)
+## Deliverables (folder `workspace/results/`)
 
 - `fit_M1.py` and `M1.csv`, `fit_M2.py` and `M2.csv`. Each CSV has one row and exactly the columns `model`, `a`, `b`,
   `sd_parameter` (`s` for M1, `c` for M2), `coverage`, `nll`, `n_train`, `n_test`.

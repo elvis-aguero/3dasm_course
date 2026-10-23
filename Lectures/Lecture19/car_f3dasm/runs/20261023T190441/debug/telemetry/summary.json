@@ -1,0 +1,97 @@
+{
+  "totals": {
+    "calls": 2,
+    "cost_calls": 1,
+    "input_tokens": 56,
+    "output_tokens": 15205,
+    "cache_read_input_tokens": 708594,
+    "cache_creation_input_tokens": 35666,
+    "cache_creation_1h_tokens": 35666,
+    "cache_creation_5m_tokens": 0,
+    "normalized_calls": 2,
+    "legacy_calls": 0,
+    "fresh_input": 56,
+    "cache_read": 708594,
+    "cache_write": 35666,
+    "output": 15205,
+    "total_cost_usd": 0.01708533,
+    "computed_cost_calls": 2,
+    "cost_usd_computed": 0.021827239999999998,
+    "cost_disagree_calls": 0,
+    "total_tokens": 15261,
+    "tokens_total": 759521,
+    "wall_time_s": 21.660012006759644,
+    "models_resolved": [
+      "claude-haiku-5-5"
+    ]
+  },
+  "by_role": {
+    "worker": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 56,
+      "output_tokens": 15205,
+      "cache_read_input_tokens": 708594,
+      "cache_creation_input_tokens": 35666,
+      "cache_creation_1h_tokens": 35666,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 56,
+      "cache_read": 708594,
+      "cache_write": 35666,
+      "output": 15205,
+      "total_cost_usd": 0.01708533,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.021827239999999998,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_phase": {
+    "analyst_turn": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 56,
+      "output_tokens": 15205,
+      "cache_read_input_tokens": 708594,
+      "cache_creation_input_tokens": 35666,
+      "cache_creation_1h_tokens": 35666,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 56,
+      "cache_read": 708594,
+      "cache_write": 35666,
+      "output": 15205,
+      "total_cost_usd": 0.01708533,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.021827239999999998,
+      "cost_disagree_calls": 0
+    }
+  },
+  "by_model": {
+    "haiku": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 56,
+      "output_tokens": 15205,
+      "cache_read_input_tokens": 708594,
+      "cache_creation_input_tokens": 35666,
+      "cache_creation_1h_tokens": 35666,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 56,
+      "cache_read": 708594,
+      "cache_write": 35666,
+      "output": 15205,
+      "total_cost_usd": 0.01708533,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.021827239999999998,
+      "cost_disagree_calls": 0
+    }
+  }
+}

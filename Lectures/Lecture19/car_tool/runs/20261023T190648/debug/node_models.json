@@ -1,0 +1,7 @@
+{
+  "analyst": {
+    "model": "haiku",
+    "backend": "claude",
+    "model_resolved": "claude-haiku-5-5"
+  }
+}
