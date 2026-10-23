@@ -1,0 +1,64 @@
+{
+  "store_dir": "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture19/car_solo/runs/20261022T193155/experiment_data",
+  "lock_path": "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture19/car_solo/runs/20261022T193155/experiment_data/experiment_data/.lock",
+  "evaluator_name": "car_solo",
+  "study_dir": "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture19/car_solo",
+  "fidelity_column": null,
+  "provenance": null,
+  "evaluator_entrypoint": "workspace/evaluator.py:evaluate",
+  "evaluator_output_names": [
+    "y"
+  ],
+  "evaluator_lookup": null,
+  "evaluator_owner": null,
+  "eval_budget": null,
+  "mem_cap_bytes": 4294967296,
+  "runtime": {},
+  "disallowed_tools": [],
+  "arms": {
+    "budget_notes": true,
+    "constraint_screen_nudge": false,
+    "delegation_contract": true,
+    "deliverable_check": false,
+    "doe_playbook": true,
+    "f3dasm_api": true,
+    "hypothesis_ledger": true,
+    "math_expert_node": false,
+    "method_selection": false,
+    "milestones_enabled": true,
+    "model_verification": true,
+    "objective_search": false,
+    "peer_interaction": true,
+    "pending_oracle_validation": false,
+    "pipeline_deliverable": true,
+    "reproduction_gate": true,
+    "reprompt_unfinished": true,
+    "runtime_topology": false,
+    "science_monitor": true,
+    "soundness_criteria": false,
+    "test_first_oracles": false,
+    "tool_proposals": false,
+    "toolbox": false,
+    "verdict_validator": true,
+    "max_awake_nodes": 5
+  },
+  "objective": null,
+  "funnel": null,
+  "solver": null,
+  "host": {
+    "host": "whopper.engin.brown.edu"
+  },
+  "software": {
+    "adda": {
+      "version": "0.1.0",
+      "install": "git",
+      "commit": "952e5427351242407d0fb3b9eae7c24c8faa5673",
+      "tracked_changes": null
+    },
+    "f3dasm": "2.4.0",
+    "claude_agent_sdk": "0.2.172",
+    "python": "3.12.11",
+    "executable": "/Users/harrislab/.local/share/adda-lectures-venv/bin/python"
+  },
+  "eval_stop_epoch": 1792698415.4913092
+}

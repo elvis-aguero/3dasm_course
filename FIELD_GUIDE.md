@@ -54,6 +54,9 @@ The list grows with the course. Each lecture notebook ends with a notes cell, "F
 - **If you know nothing about an unknown, start with a Uniform prior**, then check how much the prior changes the prediction. (L5, L7)
 - **What do you know about the noise?**: is the problem noiseless or noisy? Is the noise the same everywhere (homoscedastic) or does it change with the input (heteroscedastic)? Is it given, or must it be estimated? (L12, L13, L14, L15)
 - **Interpolation is much easier than extrapolation**: overparameterized models can behave well between the training points (interpolation) but poorly outside their range (extrapolation). Keep the simple picture of the divergence that occurs in Linear Regression for a high-degree polynomial (it is surprisingly descriptive even for the most sophisticated models). (L11, L15)
+- **Keep one record of the experiments**: the inputs described by a `Domain`, the outputs, and the status of each job (`open` or `finished`), stored to disk with `store` and read back with `from_file`. (L18)
+- **Wrap your code in the `f3dasm` interfaces** (`datagenerator`, `DataGenerator`) instead of rewriting the data-driven procedure. The management of the data and the parallelization come with them. (L18)
+- **Send the simulation, keep the record**: an expensive simulation can run on a cluster behind the same `DataGenerator` interface, while the `ExperimentData` stays in your notebook. (L21)
 
 ### 2. Prepare the data
 
@@ -77,8 +80,9 @@ The list grows with the course. Each lecture notebook ends with a notes cell, "F
 
 - **Never choose a model on its training error**: it keeps falling as the model grows, and it is biased below the noise. (L11)
 - **Overfitting shows as a training error that keeps falling while the error on unseen data grows.** (L11)
-- **Choose models and hyperparameters on validation data**, with cross-validation on the training set, reading the means together with their spread. Use the test set once, at the end, to report the chosen model. (L11)
+- **Choose models and hyperparameters on validation data**, with cross-validation on the training set, reading the means together with their spread. Use the test set once, at the end, to report the chosen model. (L11, L18)
 - **Report error metrics on the test set, and know how to read them**: for example, in supervised regression use MSE and $R^2$ (a negative $R^2$ is worse than simply predicting the mean of the data). (L10, L11)
+- **Compare many models as one experiment**: each experiment is a model (for example the degree of a polynomial), its outputs are the errors on the validation data, and the choice is read from the record. (L18)
 
 ### 6. Quantify the uncertainty
 
@@ -92,9 +96,16 @@ The list grows with the course. Each lecture notebook ends with a notes cell, "F
 
 - **What is the same for every task goes in the instructions file** (packages, where files go, how to report); **what is specific to the task goes in the prompt** (the model, the data, what to plot). (L10)
 - **Read the code the agent writes**: the documentation, and the agent itself, can explain it. (L10)
-- **Check against something you know**, not against "the code runs": e.g. the normal equations, or "the training error cannot increase with the degree". (L10, L11, L15)
-- **Pin every choice that can change a number you report**, including the randomness of the split. Read the agent's **Assumptions** and **open its files**: they may contain things that your prompt should have defined. (L10)
+- **Check against something you know**, not against "the code runs": e.g. the normal equations, or "the training error cannot increase with the degree". (L10, L11, L15, L19, L20)
+- **Pin every choice that can change a number you report**, including the randomness of the split. Read the agent's **Assumptions** and **open its files**: they may contain things that your prompt should have defined. (L10, L20)
 - **The agent's own explanation, or its flag, is not a check.** The math is. (L10)
+- **A team of agents is a graph**: each node is an agent with its own prompt, tools and model, and each edge says who may hand work to whom. Start with one node. (L19, L20)
+- **The statement is the specification**: state the objective, the inputs with bounds and units, the budget, and the deliverables. (L19)
+- **The agent sees the whole study folder**: keep what it must not read or edit (the truth, your record of the experiments) in your own code, for example in a tool. (L19)
+- **A limit in a tool is a limit**: the evaluation budget of `config.yaml` (`eval_budget`) only reminds the agents, while a tool can refuse. (L19)
+- **Decide before you prompt**: a table of decisions in the statement, so that the agents implement and do not interpret. (L20)
+- **Give the checker a different job from the builder**: it recomputes the results without the builder's code. (L20)
+- **Fix the statement, not the output**, and run again: a result corrected by hand is not reproduced by the notebook. (L20)
 
 <!-- BEGIN INDEX (generated by Lectures/sync_field_guide.py: do not edit by hand) -->
 
@@ -201,6 +212,26 @@ The list grows with the course. Each lecture notebook ends with a notes cell, "F
     - Gaussian processes are expensive *(concept: Generalization)*
     - Rescale the inputs (before building the basis) and, when useful, the outputs *(practice: Prepare the data)*
     - Read the optimizer's warnings *(practice: Fit the model)*
+- **Lecture 18**
+    - Keep one record of the experiments *(practice: Frame the problem)*
+    - Wrap your code in the `f3dasm` interfaces *(practice: Frame the problem)*
+    - Choose models and hyperparameters on validation data *(practice: Validate and select)*
+    - Compare many models as one experiment *(practice: Validate and select)*
+- **Lecture 19**
+    - Check against something you know *(practice: Work with an AI coding agent)*
+    - A team of agents is a graph *(practice: Work with an AI coding agent)*
+    - The statement is the specification *(practice: Work with an AI coding agent)*
+    - The agent sees the whole study folder *(practice: Work with an AI coding agent)*
+    - A limit in a tool is a limit *(practice: Work with an AI coding agent)*
+- **Lecture 20**
+    - Check against something you know *(practice: Work with an AI coding agent)*
+    - Pin every choice that can change a number you report *(practice: Work with an AI coding agent)*
+    - A team of agents is a graph *(practice: Work with an AI coding agent)*
+    - Decide before you prompt *(practice: Work with an AI coding agent)*
+    - Give the checker a different job from the builder *(practice: Work with an AI coding agent)*
+    - Fix the statement, not the output *(practice: Work with an AI coding agent)*
+- **Lecture 21**
+    - Send the simulation, keep the record *(practice: Frame the problem)*
 - **Lecture 22**
     - An unknown is treated as a random variable (rv) *(concept: Probability)*
 

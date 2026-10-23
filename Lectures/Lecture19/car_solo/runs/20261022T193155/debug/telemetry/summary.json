@@ -1,0 +1,28 @@
+{
+  "totals": {
+    "calls": 0,
+    "cost_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation_input_tokens": 0,
+    "cache_creation_1h_tokens": 0,
+    "cache_creation_5m_tokens": 0,
+    "normalized_calls": 0,
+    "legacy_calls": 0,
+    "fresh_input": 0,
+    "cache_read": 0,
+    "cache_write": 0,
+    "output": 0,
+    "total_cost_usd": null,
+    "computed_cost_calls": 0,
+    "cost_usd_computed": null,
+    "cost_disagree_calls": 0,
+    "total_tokens": 0,
+    "tokens_total": 0,
+    "wall_time_s": 0.0
+  },
+  "by_role": {},
+  "by_phase": {},
+  "by_model": {}
+}

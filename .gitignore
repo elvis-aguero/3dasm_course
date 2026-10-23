@@ -28,3 +28,5 @@ Untitled.ipynb
 .jupyter/
 .jupyter_ystore.db
 .virtual_documents/
+# the internal git repository that adda keeps of each run's delegations
+**/runs/*/debug/delegations/

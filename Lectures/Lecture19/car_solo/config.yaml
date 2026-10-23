@@ -1,0 +1,5 @@
+model: haiku
+budget: "00:15:00"
+evaluator:
+  entrypoint: "workspace/evaluator.py:evaluate"
+  output_names: [y]

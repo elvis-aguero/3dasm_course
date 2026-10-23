@@ -1,0 +1,11 @@
+model: haiku
+budget: "00:20:00"
+runtime:
+  reprompt_unfinished: false
+  pipeline_deliverable: false
+  reproduction_gate: false
+  hypothesis_ledger: false
+  verdict_validator: false
+  milestones_enabled: false
+  science_monitor: false
+  peer_interaction: false

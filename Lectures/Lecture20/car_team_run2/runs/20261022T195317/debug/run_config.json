@@ -1,0 +1,71 @@
+{
+  "store_dir": "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2/runs/20261022T195317/experiment_data",
+  "lock_path": "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2/runs/20261022T195317/experiment_data/experiment_data/.lock",
+  "evaluator_name": "car_team_run2",
+  "study_dir": "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2",
+  "fidelity_column": null,
+  "provenance": null,
+  "evaluator_entrypoint": null,
+  "evaluator_output_names": null,
+  "evaluator_lookup": null,
+  "evaluator_owner": null,
+  "eval_budget": null,
+  "mem_cap_bytes": 4294967296,
+  "runtime": {
+    "hypothesis_ledger": false,
+    "milestones_enabled": false,
+    "peer_interaction": false,
+    "pipeline_deliverable": false,
+    "reproduction_gate": false,
+    "reprompt_unfinished": false,
+    "science_monitor": false,
+    "verdict_validator": false
+  },
+  "disallowed_tools": [],
+  "arms": {
+    "budget_notes": true,
+    "constraint_screen_nudge": false,
+    "delegation_contract": true,
+    "deliverable_check": false,
+    "doe_playbook": true,
+    "f3dasm_api": true,
+    "hypothesis_ledger": false,
+    "math_expert_node": false,
+    "method_selection": false,
+    "milestones_enabled": false,
+    "model_verification": true,
+    "objective_search": false,
+    "peer_interaction": false,
+    "pending_oracle_validation": false,
+    "pipeline_deliverable": false,
+    "reproduction_gate": false,
+    "reprompt_unfinished": false,
+    "runtime_topology": false,
+    "science_monitor": false,
+    "soundness_criteria": false,
+    "test_first_oracles": false,
+    "tool_proposals": false,
+    "toolbox": false,
+    "verdict_validator": false,
+    "max_awake_nodes": 5
+  },
+  "objective": null,
+  "funnel": null,
+  "solver": null,
+  "host": {
+    "host": "whopper.engin.brown.edu"
+  },
+  "software": {
+    "adda": {
+      "version": "0.1.0",
+      "install": "git",
+      "commit": "952e5427351242407d0fb3b9eae7c24c8faa5673",
+      "tracked_changes": null
+    },
+    "f3dasm": "2.4.0",
+    "claude_agent_sdk": "0.2.172",
+    "python": "3.12.11",
+    "executable": "/Users/harrislab/.local/share/adda-lectures-venv/bin/python"
+  },
+  "eval_stop_epoch": 1792699997.06168
+}
