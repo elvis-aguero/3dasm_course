@@ -1,63 +1,60 @@
-"""Fit model M2 of the car stopping distance and assess it on held-out rows.
+"""Fit model M2 of the car stopping distance and write results/M2.csv.
 
-M2: a, b from least squares of y/x on [1, x] (training rows);
-    c = std of the residuals of y/x (ddof=0).
-    Mean a*x + b*x**2, standard deviation c*x.
+M2: a, b by lstsq of y/x on [1, x] (training rows); c = std (ddof=0) of the
+residuals of y/x. Mean a*x + b*x**2, standard deviation c*x.
 """
-
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from f3dasm import ExperimentData
+from scipy.stats import norm  # noqa: F401  (kept for clarity; density computed explicitly below)
 from sklearn.model_selection import train_test_split
+from f3dasm import ExperimentData
 
 STUDY = Path(__file__).resolve().parent.parent
 DATA = STUDY / "data" / "car_stopping_distance"
-OUT = STUDY / "results" / "M2.csv"
+OUT = Path(__file__).resolve().parent / "M2.csv"
 
-# Load the data
-inputs, outputs = ExperimentData.from_file(str(DATA)).to_pandas()
-x_all = inputs["x"].to_numpy(dtype=float)
-y_all = outputs["y"].to_numpy(dtype=float)
-n = len(x_all)
+ed = ExperimentData.from_file(str(DATA))
+input_df = ed.to_pandas()[0]
+output_df = ed.to_pandas()[1]
+x_all = np.asarray(input_df["x"], dtype=float).ravel()
+y_all = np.asarray(output_df["y"], dtype=float).ravel()
+assert len(x_all) == len(y_all) == 50, (len(x_all), len(y_all))
 
-# Split on the row index
-train_idx, test_idx = train_test_split(
-    np.arange(n), train_size=0.75, random_state=1987
-)
+idx = np.arange(len(x_all))
+train_idx, test_idx = train_test_split(idx, train_size=0.75, random_state=1987)
+assert len(train_idx) == 37 and len(test_idx) == 13
+
 x_tr, y_tr = x_all[train_idx], y_all[train_idx]
 x_te, y_te = x_all[test_idx], y_all[test_idx]
 
-# Fit M2: regress y/x on [1, x]
-design_tr = np.column_stack([np.ones_like(x_tr), x_tr])
-coef, *_ = np.linalg.lstsq(design_tr, y_tr / x_tr, rcond=None)
-a, b = coef
-c = np.std((y_tr / x_tr) - design_tr @ coef, ddof=0)
+# M2 fit: y/x regressed on [1, x]
+A_tr = np.column_stack([np.ones_like(x_tr), x_tr])
+coef, *_ = np.linalg.lstsq(A_tr, y_tr / x_tr, rcond=None)
+a, b = float(coef[0]), float(coef[1])
+resid = y_tr / x_tr - A_tr @ coef
+c = float(np.std(resid))  # ddof=0
 
-# Assess on the test rows
-mean_te = a * x_te + b * x_te**2
-sd_te = c * x_te
-coverage = np.mean(np.abs(y_te - mean_te) <= 1.96 * sd_te)
-log_density = -0.5 * np.log(2 * np.pi) - np.log(sd_te) - 0.5 * ((y_te - mean_te) / sd_te) ** 2
-nll = np.mean(-log_density)
+# Test-set assessment
+mu = a * x_te + b * x_te**2
+sd = c * x_te
+coverage = float(np.mean((y_te >= mu - 1.96 * sd) & (y_te <= mu + 1.96 * sd)))
+log_dens = -0.5 * np.log(2 * np.pi) - np.log(sd) - 0.5 * ((y_te - mu) / sd) ** 2
+nll = float(np.mean(-log_dens))
 
 row = pd.DataFrame(
-    [
-        {
-            "model": "M2",
-            "a": a,
-            "b": b,
-            "sd_parameter": c,
-            "coverage": coverage,
-            "nll": nll,
-            "n_train": len(train_idx),
-            "n_test": len(test_idx),
-        }
-    ]
+    [{
+        "model": "M2",
+        "a": a,
+        "b": b,
+        "sd_parameter": c,
+        "coverage": coverage,
+        "nll": nll,
+        "n_train": int(len(train_idx)),
+        "n_test": int(len(test_idx)),
+    }]
 )
-OUT.parent.mkdir(parents=True, exist_ok=True)
 row.to_csv(OUT, index=False)
-
 print(row.to_string(index=False))
-print(f"wrote {OUT}")
+print("wrote", OUT)

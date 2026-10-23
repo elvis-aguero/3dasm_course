@@ -1,14 +1,7 @@
 # Two models of the stopping distance of a car
 
-All paths are relative to the folder that contains this file.
-
-## Data
-
-`data/car_stopping_distance` is an f3dasm 2.4.0 ExperimentData of 50 stops: input `x`, the speed in m/s, and output
-`y`, the stopping distance in m. Load it with `ExperimentData.from_file("data/car_stopping_distance")` and take the
-tables with `to_pandas()`.
-
-## Decisions
+Data: `data/car_stopping_distance`, an f3dasm ExperimentData of 50 stops (input `x`, speed in m/s; output `y`,
+stopping distance in m). Load it with `ExperimentData.from_file`, and take the tables with `to_pandas()`.
 
 | Item | Decision |
 |---|---|

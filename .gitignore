@@ -30,3 +30,5 @@ Untitled.ipynb
 .virtual_documents/
 # the internal git repository that adda keeps of each run's delegations
 **/runs/*/debug/delegations/
+# the Abaqus files of the designs that Lecture 21 simulates on Oscar (each run of the notebook makes new ones)
+Lectures/Lecture21/abaqus_runs/

@@ -1,0 +1,6 @@
+{
+  "analyst": {
+    "model": "haiku",
+    "backend": "claude"
+  }
+}

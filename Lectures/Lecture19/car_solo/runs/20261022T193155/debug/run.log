@@ -1,5 +1,0 @@
-[15:31:55] INFO Run starting: model=haiku, study=/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture19/car_solo
-[15:31:55] WARNING node solo holds Default: it receives the CLI's full built-in tool set. It can bypass Delegate (Task/Agent), the literature rate limiter and cache (WebSearch/WebFetch), the reproduction gate (NotebookEdit) and FollowUp (AskUserQuestion). Informational; nothing is blocked.
-[15:31:55] INFO Invoking graph
-[15:31:55] INFO memory watcher on: cap 4.0 GB per delegation, job limit none found, every 5 s
-[15:33:50] INFO Run complete. Evals: 0. Tokens: fresh 30 / cache read 494,838 / cache write 35,757 / output 19,182. Cost: $0.0219. pipeline.ipynb was NEVER WRITTEN — the agent never called WriteDeliverable().

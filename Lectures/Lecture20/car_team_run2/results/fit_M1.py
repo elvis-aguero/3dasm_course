@@ -1,61 +1,44 @@
-"""Fit model M1 (no-intercept quadratic mean, constant sd) to the car stopping distance data.
+"""Model M1 of the car stopping distance: quadratic-no-intercept mean, constant sd.
 
-M1: mean = a*x + b*x**2, sd = s (constant), with a, b from least squares on the training rows
-and s the population std (ddof=0) of the training residuals.
+Mean: a*x + b*x**2 (a, b by least squares of y on [x, x**2], training rows).
+SD:   s = numpy.std of training residuals (ddof=0).
+Assessed on test rows: 95% coverage and mean negative log normal density.
 """
-
-from pathlib import Path
+import os
 
 import numpy as np
-import pandas as pd
 from sklearn.model_selection import train_test_split
-
 from f3dasm import ExperimentData
 
-STUDY = Path(__file__).resolve().parent.parent
-DATA = STUDY / "data" / "car_stopping_distance"
-OUT = Path(__file__).resolve().parent / "M1.csv"
+HERE = os.path.dirname(os.path.abspath(__file__))
+STUDY = os.path.dirname(HERE)
+DATA = os.path.join(STUDY, "data", "car_stopping_distance")
+OUT = os.path.join(HERE, "M1.csv")
 
-# Load data
-data = ExperimentData.from_file(str(DATA))
-input_df, output_df = data.to_pandas()
-x_all = input_df["x"].to_numpy(dtype=float)
-y_all = output_df["y"].to_numpy(dtype=float)
+exp = ExperimentData.from_file(DATA)
+df_in, df_out = exp.to_pandas()
+x = np.asarray(df_in["x"], dtype=float).ravel()
+y = np.asarray(df_out["y"], dtype=float).ravel()
+assert x.shape == y.shape and x.size == 50, (x.shape, y.shape)
 
-# Split (row index)
-idx = np.arange(len(x_all))
+idx = np.arange(x.size)
 idx_train, idx_test = train_test_split(idx, train_size=0.75, random_state=1987)
+n_train, n_test = len(idx_train), len(idx_test)
+assert (n_train, n_test) == (37, 13), (n_train, n_test)
 
-x_tr, y_tr = x_all[idx_train], y_all[idx_train]
-x_te, y_te = x_all[idx_test], y_all[idx_test]
+xt, yt = x[idx_train], y[idx_train]
+X = np.column_stack([xt, xt ** 2])
+(a, b), *_ = np.linalg.lstsq(X, yt, rcond=None)
+a, b = float(a), float(b)
+s = float(np.std(yt - (a * xt + b * xt ** 2), ddof=0))
 
-# Fit a, b by least squares of y on [x, x**2], no intercept
-X_tr = np.column_stack([x_tr, x_tr**2])
-(a, b), *_ = np.linalg.lstsq(X_tr, y_tr, rcond=None)
+xe, ye = x[idx_test], y[idx_test]
+mu = a * xe + b * xe ** 2
+coverage = float(np.mean(np.abs(ye - mu) <= 1.96 * s))
+nll = float(np.mean(0.5 * np.log(2 * np.pi * s ** 2) + 0.5 * ((ye - mu) / s) ** 2))
 
-# Constant sd from training residuals (ddof=0)
-resid_tr = y_tr - (a * x_tr + b * x_tr**2)
-s = np.std(resid_tr)
-
-# Assess on test rows
-mu_te = a * x_te + b * x_te**2
-coverage = np.mean(np.abs(y_te - mu_te) <= 1.96 * s)
-nll = np.mean(0.5 * np.log(2 * np.pi * s**2) + 0.5 * ((y_te - mu_te) / s) ** 2)
-
-row = pd.DataFrame(
-    [
-        {
-            "model": "M1",
-            "a": a,
-            "b": b,
-            "sd_parameter": s,
-            "coverage": coverage,
-            "nll": nll,
-            "n_train": len(idx_train),
-            "n_test": len(idx_test),
-        }
-    ]
-)
-row.to_csv(OUT, index=False)
-print(row.to_string(index=False))
-print(f"wrote {OUT}")
+os.makedirs(HERE, exist_ok=True)
+with open(OUT, "w") as f:
+    f.write("model,a,b,sd_parameter,coverage,nll,n_train,n_test\n")
+    f.write(f"M1,{a!r},{b!r},{s!r},{coverage!r},{nll!r},{n_train},{n_test}\n")
+print(open(OUT).read())

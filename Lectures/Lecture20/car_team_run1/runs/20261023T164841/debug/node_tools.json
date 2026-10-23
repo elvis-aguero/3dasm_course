@@ -1,0 +1,75 @@
+{
+  "coordinator": {
+    "node": "coordinator",
+    "source": "class",
+    "declared": [
+      "Done",
+      "Glob",
+      "Grep",
+      "Read",
+      "Wait"
+    ],
+    "resolved": [
+      "Done",
+      "Glob",
+      "Grep",
+      "Read",
+      "Wait"
+    ],
+    "added": [],
+    "removed": [],
+    "withheld": [],
+    "feature_withheld": {
+      "SendMessage": "peer_interaction"
+    },
+    "effective": [
+      "Done",
+      "Glob",
+      "Grep",
+      "Read",
+      "Wait"
+    ]
+  },
+  "builder": {
+    "node": "builder",
+    "source": "class",
+    "declared": [
+      "Default"
+    ],
+    "resolved": [
+      "Default"
+    ],
+    "added": [],
+    "removed": [],
+    "withheld": [
+      "Write"
+    ],
+    "feature_withheld": {
+      "SendMessage": "peer_interaction"
+    },
+    "effective": [
+      "Default"
+    ]
+  },
+  "checker": {
+    "node": "checker",
+    "source": "class",
+    "declared": [
+      "Default"
+    ],
+    "resolved": [
+      "Default"
+    ],
+    "added": [],
+    "removed": [],
+    "withheld": [
+      "Write"
+    ],
+    "feature_withheld": {
+      "SendMessage": "peer_interaction"
+    },
+    "effective": [
+      "Default"
+    ]
+  }
+}

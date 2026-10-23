@@ -1,6 +1,0 @@
-{
-  "solo": {
-    "model": "haiku",
-    "backend": "claude"
-  }
-}

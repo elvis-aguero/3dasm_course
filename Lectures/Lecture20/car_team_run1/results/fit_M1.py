@@ -1,53 +1,42 @@
-"""Fit model M1 of the car stopping distance and assess it on the test rows.
-
-M1: y ~ a*x + b*x**2 (no intercept), Gaussian noise with sd s.
-"""
-
-from pathlib import Path
+"""Fit model M1 (quadratic mean without intercept, constant sd) to the car stopping-distance data."""
+import csv
+import os
 
 import numpy as np
-import pandas as pd
-from f3dasm import ExperimentData
 from sklearn.model_selection import train_test_split
+from f3dasm import ExperimentData
 
-STUDY_DIR = Path(__file__).resolve().parent.parent
-RESULTS_DIR = STUDY_DIR / "results"
+HERE = os.path.dirname(os.path.abspath(__file__))
+STUDY = os.path.dirname(HERE)
+DATA = os.path.join(STUDY, "data", "car_stopping_distance")
+OUT = os.path.join(HERE, "M1.csv")
 
-# Data
-experiment_data = ExperimentData.from_file(str(STUDY_DIR / "data" / "car_stopping_distance"))
-input_df, output_df = experiment_data.to_pandas()
-x = input_df["x"].to_numpy(dtype=float)
-y = output_df["y"].to_numpy(dtype=float)
+exp = ExperimentData.from_file(DATA)
+df_in, df_out = exp.to_pandas()
+x_all = np.asarray(df_in["x"], dtype=float)
+y_all = np.asarray(df_out["y"], dtype=float)
 
-# Split
-row_index = np.arange(len(x))
-train_idx, test_idx = train_test_split(row_index, train_size=0.75, random_state=1987)
-x_train, y_train = x[train_idx], y[train_idx]
-x_test, y_test = x[test_idx], y[test_idx]
+idx = np.arange(len(x_all))
+train_idx, test_idx = train_test_split(idx, train_size=0.75, random_state=1987)
+x_tr, y_tr = x_all[train_idx], y_all[train_idx]
+x_te, y_te = x_all[test_idx], y_all[test_idx]
 
-# Fit M1 on the training rows
-design_train = np.column_stack([x_train, x_train**2])
-(a, b), *_ = np.linalg.lstsq(design_train, y_train, rcond=None)
-residuals_train = y_train - (a * x_train + b * x_train**2)
-s = np.std(residuals_train)  # ddof=0
+X_tr = np.column_stack([x_tr, x_tr ** 2])
+(a, b), *_ = np.linalg.lstsq(X_tr, y_tr, rcond=None)
+resid = y_tr - (a * x_tr + b * x_tr ** 2)
+s = np.std(resid, ddof=0)
 
-# Assess on the test rows
-mean_test = a * x_test + b * x_test**2
-coverage = np.mean(np.abs(y_test - mean_test) <= 1.96 * s)
-log_density = -0.5 * np.log(2 * np.pi * s**2) - (y_test - mean_test) ** 2 / (2 * s**2)
-nll = np.mean(-log_density)
+mu_te = a * x_te + b * x_te ** 2
+coverage = np.mean(np.abs(y_te - mu_te) <= 1.96 * s)
+nll = np.mean(0.5 * np.log(2 * np.pi * s ** 2) + (y_te - mu_te) ** 2 / (2 * s ** 2))
 
 row = {
-    "model": "M1",
-    "a": a,
-    "b": b,
-    "sd_parameter": s,
-    "coverage": coverage,
-    "nll": nll,
-    "n_train": len(train_idx),
-    "n_test": len(test_idx),
+    "model": "M1", "a": a, "b": b, "sd_parameter": s,
+    "coverage": coverage, "nll": nll,
+    "n_train": len(train_idx), "n_test": len(test_idx),
 }
-
-RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-pd.DataFrame([row]).to_csv(RESULTS_DIR / "M1.csv", index=False)
-print(pd.DataFrame([row]).to_string(index=False))
+with open(OUT, "w", newline="") as f:
+    w = csv.DictWriter(f, fieldnames=list(row.keys()))
+    w.writeheader()
+    w.writerow(row)
+print(row)

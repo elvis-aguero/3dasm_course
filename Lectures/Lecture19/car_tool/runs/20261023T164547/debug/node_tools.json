@@ -1,0 +1,26 @@
+{
+  "analyst": {
+    "node": "analyst",
+    "source": "class",
+    "declared": [
+      "Default",
+      "Done"
+    ],
+    "resolved": [
+      "Default",
+      "Done"
+    ],
+    "added": [],
+    "removed": [],
+    "withheld": [
+      "Write"
+    ],
+    "feature_withheld": {
+      "SendMessage": "peer_interaction"
+    },
+    "effective": [
+      "Default",
+      "Done"
+    ]
+  }
+}
