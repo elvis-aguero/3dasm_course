@@ -1,49 +1,58 @@
-"""Fit model M1 (mean a*x + b*x**2, constant sd s) to the car stopping-distance data."""
-import os
+"""Fit model M1 for the car stopping-distance data and assess it on held-out rows.
 
+M1: mean = a*x + b*x**2 (no intercept, fit by least squares on training rows),
+    standard deviation = s = numpy.std(training residuals, ddof=0).
+Assessment on test rows: coverage of mean +- 1.96*sd, and mean negative log normal density.
+"""
+import os
 import numpy as np
 import pandas as pd
+from scipy.stats import norm
 from sklearn.model_selection import train_test_split
 from f3dasm import ExperimentData
 
 STUDY = "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run1"
 DATA = os.path.join(STUDY, "data", "car_stopping_distance")
-OUT = os.path.join(STUDY, "workspace", "results")
+OUT_DIR = os.path.join(STUDY, "workspace", "results")
 
+inp, outp = ExperimentData.from_file(DATA).to_pandas()
+x_all = inp["x"].to_numpy(dtype=float)
+y_all = outp["y"].to_numpy(dtype=float)
 
-def main():
-    ed = ExperimentData.from_file(DATA)
-    inp = ed.to_pandas()[0]
-    out = ed.to_pandas()[1]
-    x = np.asarray(inp["x"], dtype=float).ravel()
-    y = np.asarray(out["y"], dtype=float).ravel()
-    assert len(x) == len(y) == 50, (len(x), len(y))
+idx = np.arange(len(x_all))
+train_idx, test_idx = train_test_split(idx, train_size=0.75, random_state=1987)
 
-    idx = np.arange(len(x))
-    idx_train, idx_test = train_test_split(idx, train_size=0.75, random_state=1987)
-    assert len(idx_train) == 37 and len(idx_test) == 13
+x_tr, y_tr = x_all[train_idx], y_all[train_idx]
+x_te, y_te = x_all[test_idx], y_all[test_idx]
 
-    xtr, ytr = x[idx_train], y[idx_train]
-    xte, yte = x[idx_test], y[idx_test]
+# Least squares of y on [x, x**2], no intercept
+X_tr = np.column_stack([x_tr, x_tr ** 2])
+(a, b), *_ = np.linalg.lstsq(X_tr, y_tr, rcond=None)
 
-    A = np.column_stack([xtr, xtr ** 2])
-    (a, b), *_ = np.linalg.lstsq(A, ytr, rcond=None)
-    resid = ytr - (a * xtr + b * xtr ** 2)
-    s = float(np.std(resid, ddof=0))
+resid_tr = y_tr - (a * x_tr + b * x_tr ** 2)
+s = float(np.std(resid_tr, ddof=0))
 
-    mu = a * xte + b * xte ** 2
-    coverage = float(np.mean(np.abs(yte - mu) <= 1.96 * s))
-    nll = float(np.mean(0.5 * np.log(2 * np.pi * s ** 2) + 0.5 * ((yte - mu) / s) ** 2))
+mu_te = a * x_te + b * x_te ** 2
+sd_te = np.full_like(mu_te, s)
 
-    row = pd.DataFrame([{
-        "model": "M1", "a": float(a), "b": float(b), "sd_parameter": s,
-        "coverage": coverage, "nll": nll,
-        "n_train": len(idx_train), "n_test": len(idx_test),
-    }], columns=["model", "a", "b", "sd_parameter", "coverage", "nll", "n_train", "n_test"])
-    os.makedirs(OUT, exist_ok=True)
-    row.to_csv(os.path.join(OUT, "M1.csv"), index=False)
-    print(row.to_string(index=False))
+lower = mu_te - 1.96 * sd_te
+upper = mu_te + 1.96 * sd_te
+coverage = float(np.mean((y_te >= lower) & (y_te <= upper)))
+nll = float(np.mean(-norm.logpdf(y_te, loc=mu_te, scale=sd_te)))
 
+row = {
+    "model": "M1",
+    "a": float(a),
+    "b": float(b),
+    "sd_parameter": s,
+    "coverage": coverage,
+    "nll": nll,
+    "n_train": int(len(train_idx)),
+    "n_test": int(len(test_idx)),
+}
 
-if __name__ == "__main__":
-    main()
+os.makedirs(OUT_DIR, exist_ok=True)
+pd.DataFrame([row], columns=["model", "a", "b", "sd_parameter", "coverage", "nll", "n_train", "n_test"]).to_csv(
+    os.path.join(OUT_DIR, "M1.csv"), index=False
+)
+print(pd.DataFrame([row]).to_string(index=False))

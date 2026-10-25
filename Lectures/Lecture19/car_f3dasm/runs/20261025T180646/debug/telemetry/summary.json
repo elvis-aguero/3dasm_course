@@ -1,0 +1,122 @@
+{
+  "totals": {
+    "calls": 2,
+    "cost_calls": 1,
+    "input_tokens": 40,
+    "output_tokens": 11605,
+    "cache_read_input_tokens": 446134,
+    "cache_creation_input_tokens": 43024,
+    "cache_creation_1h_tokens": 43024,
+    "cache_creation_5m_tokens": 0,
+    "normalized_calls": 2,
+    "legacy_calls": 0,
+    "fresh_input": 40,
+    "cache_read": 446134,
+    "cache_write": 43024,
+    "output": 11605,
+    "total_cost_usd": 0.01346316,
+    "computed_cost_calls": 2,
+    "cost_usd_computed": 0.01887264,
+    "cost_disagree_calls": 0,
+    "total_tokens": 11645,
+    "tokens_total": 500803,
+    "wall_time_s": 23.97826385498047,
+    "models_resolved": [
+      "claude-haiku-5-5"
+    ]
+  },
+  "by_role": {
+    "worker": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 40,
+      "output_tokens": 11605,
+      "cache_read_input_tokens": 446134,
+      "cache_creation_input_tokens": 43024,
+      "cache_creation_1h_tokens": 43024,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 40,
+      "cache_read": 446134,
+      "cache_write": 43024,
+      "output": 11605,
+      "total_cost_usd": 0.01346316,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.01887264,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_node": {
+    "analyst": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 40,
+      "output_tokens": 11605,
+      "cache_read_input_tokens": 446134,
+      "cache_creation_input_tokens": 43024,
+      "cache_creation_1h_tokens": 43024,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 40,
+      "cache_read": 446134,
+      "cache_write": 43024,
+      "output": 11605,
+      "total_cost_usd": 0.01346316,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.01887264,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_phase": {
+    "analyst_turn": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 40,
+      "output_tokens": 11605,
+      "cache_read_input_tokens": 446134,
+      "cache_creation_input_tokens": 43024,
+      "cache_creation_1h_tokens": 43024,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 40,
+      "cache_read": 446134,
+      "cache_write": 43024,
+      "output": 11605,
+      "total_cost_usd": 0.01346316,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.01887264,
+      "cost_disagree_calls": 0
+    }
+  },
+  "by_model": {
+    "haiku": {
+      "calls": 2,
+      "cost_calls": 1,
+      "input_tokens": 40,
+      "output_tokens": 11605,
+      "cache_read_input_tokens": 446134,
+      "cache_creation_input_tokens": 43024,
+      "cache_creation_1h_tokens": 43024,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 40,
+      "cache_read": 446134,
+      "cache_write": 43024,
+      "output": 11605,
+      "total_cost_usd": 0.01346316,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.01887264,
+      "cost_disagree_calls": 0
+    }
+  }
+}

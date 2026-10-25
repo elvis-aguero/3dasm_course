@@ -1,0 +1,6 @@
+[14:11:50] INFO Run starting: model=haiku, study=/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2
+[14:11:50] WARNING node builder holds Default: it receives the CLI's full built-in tool set. It can bypass Delegate (Task/Agent), the literature rate limiter and cache (WebSearch/WebFetch), the reproduction gate (NotebookEdit) and FollowUp (AskUserQuestion). Informational; nothing is blocked.
+[14:11:50] WARNING node checker holds Default: it receives the CLI's full built-in tool set. It can bypass Delegate (Task/Agent), the literature rate limiter and cache (WebSearch/WebFetch), the reproduction gate (NotebookEdit) and FollowUp (AskUserQuestion). Informational; nothing is blocked.
+[14:11:50] INFO Invoking graph
+[14:11:50] INFO memory watcher on: cap 4.0 GB per delegation, job limit none found, every 5 s
+[14:14:09] INFO Run complete. Evals: 0. Tokens: fresh 100 / cache read 977,679 / cache write 87,181 / output 26,107. Cost: $0.0353. pipeline.ipynb was NEVER WRITTEN — the agent never called WriteDeliverable().

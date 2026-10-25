@@ -1,42 +1,42 @@
-"""Fit model M1 for the car stopping distance data and write results/M1.csv."""
-from pathlib import Path
+"""Fit model M1 of the car stopping-distance problem (see PROBLEM_STATEMENT.md)."""
+import os
 
 import numpy as np
 import pandas as pd
 from f3dasm import ExperimentData
-from scipy.stats import norm
 from sklearn.model_selection import train_test_split
 
-STUDY = Path("/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2")
-DATA = STUDY / "data" / "car_stopping_distance"
-OUT = STUDY / "workspace" / "results" / "M1.csv"
+STUDY = "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2"
+DATA = os.path.join(STUDY, "data", "car_stopping_distance")
+OUT = os.path.join(STUDY, "workspace", "results")
 
 exp = ExperimentData.from_file(DATA)
-input_df, output_df = exp.to_pandas()
-x = input_df["x"].to_numpy(dtype=float)
-y = output_df["y"].to_numpy(dtype=float)
+inp, out = exp.to_pandas()
+x = inp["x"].to_numpy(dtype=float)
+y = out["y"].to_numpy(dtype=float)
+n = len(x)
 
-idx = np.arange(len(x))
-train_idx, test_idx = train_test_split(idx, train_size=0.75, random_state=1987)
-n_train, n_test = len(train_idx), len(test_idx)
+idx = np.arange(n)
+tr, te = train_test_split(idx, train_size=0.75, random_state=1987)
+n_train, n_test = len(tr), len(te)
 
-# M1: least squares on [x, x**2], no intercept
-X_train = np.column_stack([x[train_idx], x[train_idx] ** 2])
-(a, b), *_ = np.linalg.lstsq(X_train, y[train_idx], rcond=None)
-resid_train = y[train_idx] - (a * x[train_idx] + b * x[train_idx] ** 2)
-s = np.std(resid_train, ddof=0)
+X = np.column_stack([x, x**2])
+coef, *_ = np.linalg.lstsq(X[tr], y[tr], rcond=None)
+a, b = float(coef[0]), float(coef[1])
+resid = y[tr] - (a * x[tr] + b * x[tr] ** 2)
+s = float(np.std(resid, ddof=0))
 
-# Assessment on test rows
-xt, yt = x[test_idx], y[test_idx]
-mean_t = a * xt + b * xt ** 2
-sd_t = s
-coverage = np.mean(np.abs(yt - mean_t) <= 1.96 * sd_t)
-nll = np.mean(-norm.logpdf(yt, loc=mean_t, scale=sd_t))
+mu = a * x[te] + b * x[te] ** 2
+yt = y[te]
+coverage = float(np.mean(np.abs(yt - mu) <= 1.96 * s))
+logpdf = -0.5 * np.log(2 * np.pi * s**2) - (yt - mu) ** 2 / (2 * s**2)
+nll = float(-np.mean(logpdf))
 
-OUT.parent.mkdir(parents=True, exist_ok=True)
 row = pd.DataFrame([{
     "model": "M1", "a": a, "b": b, "sd_parameter": s,
     "coverage": coverage, "nll": nll, "n_train": n_train, "n_test": n_test,
 }])
-row.to_csv(OUT, index=False)
+os.makedirs(OUT, exist_ok=True)
+row.to_csv(os.path.join(OUT, "M1.csv"), index=False)
 print(row.to_string(index=False))
+print("n rows total:", n, "train:", n_train, "test:", n_test)
