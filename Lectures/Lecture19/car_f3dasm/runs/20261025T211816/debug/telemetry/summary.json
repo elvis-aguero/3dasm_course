@@ -1,0 +1,122 @@
+{
+  "totals": {
+    "calls": 1,
+    "cost_calls": 0,
+    "input_tokens": 38,
+    "output_tokens": 9008,
+    "cache_read_input_tokens": 489515,
+    "cache_creation_input_tokens": 35390,
+    "cache_creation_1h_tokens": 35390,
+    "cache_creation_5m_tokens": 0,
+    "normalized_calls": 1,
+    "legacy_calls": 0,
+    "fresh_input": 38,
+    "cache_read": 489515,
+    "cache_write": 35390,
+    "output": 9008,
+    "total_cost_usd": null,
+    "computed_cost_calls": 1,
+    "cost_usd_computed": 0.01648095,
+    "cost_disagree_calls": 0,
+    "total_tokens": 9046,
+    "tokens_total": 533951,
+    "wall_time_s": 0.0,
+    "models_resolved": [
+      "claude-haiku-5-5"
+    ]
+  },
+  "by_role": {
+    "analyst": {
+      "calls": 1,
+      "cost_calls": 0,
+      "input_tokens": 38,
+      "output_tokens": 9008,
+      "cache_read_input_tokens": 489515,
+      "cache_creation_input_tokens": 35390,
+      "cache_creation_1h_tokens": 35390,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 38,
+      "cache_read": 489515,
+      "cache_write": 35390,
+      "output": 9008,
+      "total_cost_usd": null,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.01648095,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_node": {
+    "analyst": {
+      "calls": 1,
+      "cost_calls": 0,
+      "input_tokens": 38,
+      "output_tokens": 9008,
+      "cache_read_input_tokens": 489515,
+      "cache_creation_input_tokens": 35390,
+      "cache_creation_1h_tokens": 35390,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 38,
+      "cache_read": 489515,
+      "cache_write": 35390,
+      "output": 9008,
+      "total_cost_usd": null,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.01648095,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_phase": {
+    "analyst_turn": {
+      "calls": 1,
+      "cost_calls": 0,
+      "input_tokens": 38,
+      "output_tokens": 9008,
+      "cache_read_input_tokens": 489515,
+      "cache_creation_input_tokens": 35390,
+      "cache_creation_1h_tokens": 35390,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 38,
+      "cache_read": 489515,
+      "cache_write": 35390,
+      "output": 9008,
+      "total_cost_usd": null,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.01648095,
+      "cost_disagree_calls": 0
+    }
+  },
+  "by_model": {
+    "haiku": {
+      "calls": 1,
+      "cost_calls": 0,
+      "input_tokens": 38,
+      "output_tokens": 9008,
+      "cache_read_input_tokens": 489515,
+      "cache_creation_input_tokens": 35390,
+      "cache_creation_1h_tokens": 35390,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 38,
+      "cache_read": 489515,
+      "cache_write": 35390,
+      "output": 9008,
+      "total_cost_usd": null,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.01648095,
+      "cost_disagree_calls": 0
+    }
+  }
+}

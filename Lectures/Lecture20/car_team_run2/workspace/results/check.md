@@ -1,51 +1,32 @@
-# Check of M1 and M2 (checker, independent recomputation)
+# Check report (checker, independent recomputation)
 
-Recomputation script: `runs/20261025T194713/debug/delegations/D003/recompute.py`, run with `python -I`.
-It was written from PROBLEM_STATEMENT.md and did not import anything from `workspace/results/`.
-Data: `data/car_stopping_distance` via `ExperimentData.from_file(project_dir=...)`, tables via `to_pandas()`
-(a tuple: input table with `x`, output table with `y`; row order checked equal).
-Split: `train_test_split(row index, train_size=0.75, random_state=1987)`.
-Tolerance: relative difference below 1e-6 (floats).
+Recomputation script: `runs/20261025T212247/debug/delegations/D003/recompute.py` (written from PROBLEM_STATEMENT.md; builder scripts not used).
+Data: `data/car_stopping_distance` loaded with `ExperimentData.from_file`, `to_pandas()` (x from table 0, y from table 1), N = 50.
+Split: `train_test_split(numpy.arange(50), train_size=0.75, random_state=1987)`: 37 train, 13 test.
+Test row indices: [2, 8, 12, 19, 22, 24, 33, 34, 38, 41, 43, 46, 48].
 
-## Row counts
-- Recomputed: n_train = 37, n_test = 13 (50 rows in total).
-- M1.csv: n_train = 37, n_test = 13. PASS
-- M2.csv: n_train = 37, n_test = 13. PASS
+## Checks
 
-## M1 (PASS)
-| item | file (M1.csv) | recomputed | rel. diff | verdict |
+| Check | Mine | CSV | Rel. diff | Result |
 |---|---|---|---|---|
-| a | 1.556792744461828 | 1.556792744461828 | 0 | PASS |
-| b | 0.1003596848656863 | 0.1003596848656863 | 0 | PASS |
-| sd_parameter (s) | 27.98303080695783 | 27.98303080695783 | 0 | PASS |
-| coverage | 0.8461538461538461 | 0.8461538461538461 | 0 | PASS |
-| nll | 4.976149641475804 | 4.976149641475804 | 0 | PASS |
+| Split: n_train | 37 | 37 (M1, M2) | 0 | PASS |
+| Split: n_test | 13 | 13 (M1, M2) | 0 | PASS |
+| Split: test row indices | [2, 8, 12, 19, 22, 24, 33, 34, 38, 41, 43, 46, 48] | n/a (not stored in CSV) | n/a | PASS (matches spec) |
+| M1 a | 1.556792744461828 | 1.556792744461828 | 0 | PASS |
+| M1 b | 0.1003596848656863 | 0.1003596848656863 | 0 | PASS |
+| M1 sd_parameter (s) | 27.98303080695783 | 27.98303080695783 | 0 | PASS |
+| M1 coverage | 0.8461538461538461 (11/13) | 0.8461538461538461 | 0 | PASS |
+| M1 nll | 4.976149641475804 | 4.976149641475804 | 0 | PASS |
+| M2 a | 1.3804030477145803 | 1.3804030477145803 | 0 | PASS |
+| M2 b | 0.10323542514078464 | 0.10323542514078464 | 0 | PASS |
+| M2 sd_parameter (c) | 0.5532310661868638 | 0.5532310661868638 | 0 | PASS |
+| M2 coverage | 0.8461538461538461 (11/13) | 0.8461538461538461 | 0 | PASS |
+| M2 nll | 4.503770939937341 | 4.503770939937342 | 1.97e-16 | PASS |
+| M1.csv columns | model,a,b,sd_parameter,coverage,nll,n_train,n_test | identical | n/a | PASS |
+| M2.csv columns | model,a,b,sd_parameter,coverage,nll,n_train,n_test | identical | n/a | PASS |
+| M1.csv rows | 1 data row | 1 | n/a | PASS |
+| M2.csv rows | 1 data row | 1 | n/a | PASS |
 
-**M1: PASS**
+## Overall verdict: PASS
 
-## M2 (PASS)
-| item | file (M2.csv) | recomputed | rel. diff | verdict |
-|---|---|---|---|---|
-| a | 1.3804030477145803 | 1.3804030477145803 | 0 | PASS |
-| b | 0.10323542514078464 | 0.10323542514078464 | 0 | PASS |
-| sd_parameter (c) | 0.5532310661868638 | 0.5532310661868638 | 0 | PASS |
-| coverage | 0.8461538461538461 | 0.8461538461538461 | 0 | PASS |
-| nll | 4.503770939937342 | 4.503770939937341 | 2.0e-16 | PASS |
-
-**M2: PASS**
-
-## Column and row structure (PASS)
-- M1.csv header: `model,a,b,sd_parameter,coverage,nll,n_train,n_test`, exactly the required columns, one data row, model = `M1`. PASS
-- M2.csv header: `model,a,b,sd_parameter,coverage,nll,n_train,n_test`, exactly the required columns, one data row, model = `M2`. PASS
-
-## Files (PASS)
-- `workspace/results/fit_M1.py` exists. PASS
-- `workspace/results/fit_M2.py` exists. PASS
-
-## M2 follows the statement literally (PASS)
-`fit_M2.py` regresses y/x on [1, x] by `np.linalg.lstsq` over training rows; a = intercept, b = slope.
-c = `np.std` (ddof=0) of the y/x residuals. Mean = a*x + b*x**2, sd = c*x. Coverage uses mean +- 1.96 sd on test rows.
-nll is the mean of -log normal density of y. All of this matches the statement.
-
-## Overall
-Both models PASS. No decisions were changed. The checker ran no evaluations (0).
+All checks pass at the 1e-6 relative tolerance. No ground-truth evaluations were used (source-free study).

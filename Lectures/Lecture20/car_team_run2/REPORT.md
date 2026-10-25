@@ -1,9 +1,11 @@
-Both models were fitted per PROBLEM_STATEMENT.md (split 37 train / 13 test, random_state=1987), and the checker independently recomputed both with PASS.
+Both models fitted per PROBLEM_STATEMENT.md (split train_test_split(row index, 0.75, random_state=1987): 37 train / 13 test; no decisions changed; source-free, 0 ground-truth evals).
 
 Results (workspace/results/):
-- M1: a=1.556793, b=0.100360, s=27.983031, coverage=0.846154 (11/13), nll=4.976150, n_train=37, n_test=13
-- M2: a=1.380403, b=0.103235, c=0.553231, coverage=0.846154 (11/13), nll=4.503771, n_train=37, n_test=13
+- M1 (D001): a=1.556792744461828, b=0.1003596848656863, sd_parameter s=27.98303080695783, coverage=0.8462 (11/13), nll=4.976149641475804, n_train=37, n_test=13.
+- M2 (D002): a=1.3804030477145803, b=0.10323542514078464, sd_parameter c=0.5532310661868638, coverage=0.8462 (11/13), nll=4.503770939937342, n_train=37, n_test=13.
 
-Checks (D003): M1 PASS and M2 PASS. All recomputed values match the files to rel. 2e-16. Both CSVs have exactly the required header and one row. fit_M1.py and fit_M2.py are present. The M2 fit follows the spec literally.
+Deliverables: fit_M1.py, M1.csv, fit_M2.py, M2.csv, check.md.
 
-Note: the builder flagged that M2's mean a*x+b*x^2 is inconsistent with the y/x regression. It is not: y/x = a + b*x implies y = a*x + b*x^2, so the mean is consistent. No decisions were changed. 0 ground-truth evaluations were used; this is an analytic study with no evaluator. Remaining uncertainty: n_test=13 is small, so coverage (11/13) and nll are noisy. The two models share the same coverage on this split.
+Check (D003, independent recomputation with its own script, 1e-6 relative tolerance): PASS. All M1 and M2 values match (M2 nll differs at 2e-16 relative); CSV columns exact; one row each; split 37/13 with test indices [2, 8, 12, 19, 22, 24, 33, 34, 38, 41, 43, 46, 48].
+
+Remaining caveats: the builder reported that fit_M1.py, M1.csv and fit_M2.py already existed in workspace/results/ when it started; it verified and re-ran them rather than writing them fresh, and the checker's independent recomputation agrees with the files. Coverage is 11/13 on 13 test points, so it is a coarse estimate. The nll is computed from the mean/sd as specified.
