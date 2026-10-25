@@ -101,7 +101,7 @@ The list grows with the course. Each lecture notebook ends with a notes cell, "F
 - **The agent's own explanation, or its flag, is not a check.** The math is. (L10)
 - **A team of agents is a graph**: each node is an agent with its own prompt, tools and model, and each edge says who may hand work to whom. Start with one node. (L19, L20)
 - **The statement is the specification**: state the objective, the inputs with bounds and units, the budget, and the deliverables. (L19)
-- **Put the experiment behind a tool**: the tool decides what an evaluation returns, refuses calls past the budget, and records each one. It does not hide its own code: an agent can read every file it reaches, including your notebook, unless it runs in a sandbox. (L19)
+- **Put the experiment behind a tool**: the tool decides what an evaluation returns, refuses calls past the budget, and records each one. It does not hide its own code: an agent can read every file it reaches, including your notebook. To hide something, keep it where the agent cannot reach it. (L19)
 - **A limit in a tool is a limit**: a tool can refuse a call, while a limit written in the statement is only a request. (L19)
 - **Decide before you prompt**: a table of decisions in the statement, so that the agents implement and do not interpret. (L20)
 - **Give the checker a different job from the builder**: it recomputes the results without the builder's code. (L20)
