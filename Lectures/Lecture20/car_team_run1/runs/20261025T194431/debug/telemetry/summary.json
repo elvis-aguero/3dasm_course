@@ -1,0 +1,188 @@
+{
+  "totals": {
+    "calls": 4,
+    "cost_calls": 3,
+    "input_tokens": 112,
+    "output_tokens": 32478,
+    "cache_read_input_tokens": 1150060,
+    "cache_creation_input_tokens": 98944,
+    "cache_creation_1h_tokens": 98944,
+    "cache_creation_5m_tokens": 0,
+    "normalized_calls": 4,
+    "legacy_calls": 0,
+    "fresh_input": 112,
+    "cache_read": 1150060,
+    "cache_write": 98944,
+    "output": 32478,
+    "total_cost_usd": 0.03933822,
+    "computed_cost_calls": 4,
+    "cost_usd_computed": 0.0475396,
+    "cost_disagree_calls": 0,
+    "total_tokens": 32590,
+    "tokens_total": 1281594,
+    "wall_time_s": 107.39908814430237,
+    "models_resolved": [
+      "claude-haiku-5-5"
+    ]
+  },
+  "by_role": {
+    "worker": {
+      "calls": 4,
+      "cost_calls": 3,
+      "input_tokens": 112,
+      "output_tokens": 32478,
+      "cache_read_input_tokens": 1150060,
+      "cache_creation_input_tokens": 98944,
+      "cache_creation_1h_tokens": 98944,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 4,
+      "legacy_calls": 0,
+      "fresh_input": 112,
+      "cache_read": 1150060,
+      "cache_write": 98944,
+      "output": 32478,
+      "total_cost_usd": 0.03933822,
+      "computed_cost_calls": 4,
+      "cost_usd_computed": 0.0475396,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_node": {
+    "builder": {
+      "calls": 2,
+      "cost_calls": 2,
+      "input_tokens": 58,
+      "output_tokens": 12453,
+      "cache_read_input_tokens": 605660,
+      "cache_creation_input_tokens": 43918,
+      "cache_creation_1h_tokens": 43918,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 2,
+      "legacy_calls": 0,
+      "fresh_input": 58,
+      "cache_read": 605660,
+      "cache_write": 43918,
+      "output": 12453,
+      "total_cost_usd": 0.0219776,
+      "computed_cost_calls": 2,
+      "cost_usd_computed": 0.0210725,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    },
+    "checker": {
+      "calls": 1,
+      "cost_calls": 1,
+      "input_tokens": 34,
+      "output_tokens": 12398,
+      "cache_read_input_tokens": 401202,
+      "cache_creation_input_tokens": 33088,
+      "cache_creation_1h_tokens": 33088,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 34,
+      "cache_read": 401202,
+      "cache_write": 33088,
+      "output": 12398,
+      "total_cost_usd": 0.01736062,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.01683202,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    },
+    "coordinator": {
+      "calls": 1,
+      "cost_calls": 0,
+      "input_tokens": 20,
+      "output_tokens": 7627,
+      "cache_read_input_tokens": 143198,
+      "cache_creation_input_tokens": 21938,
+      "cache_creation_1h_tokens": 21938,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 20,
+      "cache_read": 143198,
+      "cache_write": 21938,
+      "output": 7627,
+      "total_cost_usd": null,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.00963508,
+      "cost_disagree_calls": 0,
+      "models_resolved": [
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "by_phase": {
+    "delegation": {
+      "calls": 3,
+      "cost_calls": 3,
+      "input_tokens": 92,
+      "output_tokens": 24851,
+      "cache_read_input_tokens": 1006862,
+      "cache_creation_input_tokens": 77006,
+      "cache_creation_1h_tokens": 77006,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 3,
+      "legacy_calls": 0,
+      "fresh_input": 92,
+      "cache_read": 1006862,
+      "cache_write": 77006,
+      "output": 24851,
+      "total_cost_usd": 0.03933822,
+      "computed_cost_calls": 3,
+      "cost_usd_computed": 0.03790452,
+      "cost_disagree_calls": 0
+    },
+    "coordinator_turn": {
+      "calls": 1,
+      "cost_calls": 0,
+      "input_tokens": 20,
+      "output_tokens": 7627,
+      "cache_read_input_tokens": 143198,
+      "cache_creation_input_tokens": 21938,
+      "cache_creation_1h_tokens": 21938,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 1,
+      "legacy_calls": 0,
+      "fresh_input": 20,
+      "cache_read": 143198,
+      "cache_write": 21938,
+      "output": 7627,
+      "total_cost_usd": null,
+      "computed_cost_calls": 1,
+      "cost_usd_computed": 0.00963508,
+      "cost_disagree_calls": 0
+    }
+  },
+  "by_model": {
+    "haiku": {
+      "calls": 4,
+      "cost_calls": 3,
+      "input_tokens": 112,
+      "output_tokens": 32478,
+      "cache_read_input_tokens": 1150060,
+      "cache_creation_input_tokens": 98944,
+      "cache_creation_1h_tokens": 98944,
+      "cache_creation_5m_tokens": 0,
+      "normalized_calls": 4,
+      "legacy_calls": 0,
+      "fresh_input": 112,
+      "cache_read": 1150060,
+      "cache_write": 98944,
+      "output": 32478,
+      "total_cost_usd": 0.03933822,
+      "computed_cost_calls": 4,
+      "cost_usd_computed": 0.0475396,
+      "cost_disagree_calls": 0
+    }
+  }
+}

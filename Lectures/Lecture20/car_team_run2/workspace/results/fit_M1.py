@@ -1,42 +1,38 @@
-"""Fit model M1 of the car stopping-distance problem (see PROBLEM_STATEMENT.md)."""
-import os
-
 import numpy as np
 import pandas as pd
-from f3dasm import ExperimentData
+from scipy.stats import norm
 from sklearn.model_selection import train_test_split
+from f3dasm import ExperimentData
 
 STUDY = "/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2"
-DATA = os.path.join(STUDY, "data", "car_stopping_distance")
-OUT = os.path.join(STUDY, "workspace", "results")
+data = ExperimentData.from_file(project_dir=f"{STUDY}/data/car_stopping_distance")
+out = data.to_pandas()
+if isinstance(out, tuple):
+    inp, outp = out[0], out[1]
+else:
+    raise RuntimeError("unexpected to_pandas() return")
+df = pd.concat([inp.reset_index(drop=True), outp.reset_index(drop=True)], axis=1)
+x_all = df["x"].to_numpy(dtype=float)
+y_all = df["y"].to_numpy(dtype=float)
 
-exp = ExperimentData.from_file(DATA)
-inp, out = exp.to_pandas()
-x = inp["x"].to_numpy(dtype=float)
-y = out["y"].to_numpy(dtype=float)
-n = len(x)
-
-idx = np.arange(n)
+idx = np.arange(len(df))
 tr, te = train_test_split(idx, train_size=0.75, random_state=1987)
-n_train, n_test = len(tr), len(te)
+x_tr, y_tr = x_all[tr], y_all[tr]
+x_te, y_te = x_all[te], y_all[te]
 
-X = np.column_stack([x, x**2])
-coef, *_ = np.linalg.lstsq(X[tr], y[tr], rcond=None)
-a, b = float(coef[0]), float(coef[1])
-resid = y[tr] - (a * x[tr] + b * x[tr] ** 2)
-s = float(np.std(resid, ddof=0))
+A = np.column_stack([x_tr, x_tr**2])
+(a, b), *_ = np.linalg.lstsq(A, y_tr, rcond=None)
+resid = y_tr - (a * x_tr + b * x_tr**2)
+s = np.std(resid, ddof=0)
 
-mu = a * x[te] + b * x[te] ** 2
-yt = y[te]
-coverage = float(np.mean(np.abs(yt - mu) <= 1.96 * s))
-logpdf = -0.5 * np.log(2 * np.pi * s**2) - (yt - mu) ** 2 / (2 * s**2)
-nll = float(-np.mean(logpdf))
+mu_te = a * x_te + b * x_te**2
+coverage = float(np.mean(np.abs(y_te - mu_te) <= 1.96 * s))
+nll = float(np.mean(-norm.logpdf(y_te, loc=mu_te, scale=s)))
 
 row = pd.DataFrame([{
     "model": "M1", "a": a, "b": b, "sd_parameter": s,
-    "coverage": coverage, "nll": nll, "n_train": n_train, "n_test": n_test,
+    "coverage": coverage, "nll": nll,
+    "n_train": len(tr), "n_test": len(te),
 }])
-os.makedirs(OUT, exist_ok=True)
-row.to_csv(os.path.join(OUT, "M1.csv"), index=False)
+row.to_csv(f"{STUDY}/workspace/results/M1.csv", index=False)
 print(row.to_string(index=False))
-print("n rows total:", n, "train:", n_train, "test:", n_test)

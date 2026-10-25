@@ -1,15 +1,9 @@
-"""Degree-2 polynomial surrogate for the car stopping distance y(x).
+"""Predict stopping distance y (m) of a car from its speed x (m/s).
 
-The stored data (data/) contains one row per driver: speed x, reaction time z,
-and stopping distance y = z*x + 0.1*x**2. Since z varies per driver, the fit is
-of y on x alone, which estimates the expected stopping distance E[y | x].
-
-Usage:
-    from predict import predict
-    predict(50.0)            # -> predicted stopping distance (m)
-    predict([10, 40, 80])    # -> array of predictions
+The model is a degree-2 polynomial in x, fitted with scikit-learn to the
+ExperimentData stored in data/experiment_data (30 Sobol-sampled speeds, each
+paired with one driver's reaction time z ~ N(1.5, 0.5^2)).
 """
-
 from pathlib import Path
 
 import numpy as np
@@ -19,36 +13,29 @@ from sklearn.preprocessing import PolynomialFeatures
 
 from f3dasm import ExperimentData
 
-DATA_DIR = Path(__file__).parent / "data"
-DEGREE = 2
+DATA_DIR = Path(__file__).resolve().parent / "data"  # store lives in data/experiment_data/
 
 
 def _fit_model():
     data = ExperimentData.from_file(project_dir=DATA_DIR)
-    inputs, outputs = data.to_pandas()
-    X = inputs[["x"]].to_numpy()
-    y = outputs["y"].to_numpy()
-    model = make_pipeline(PolynomialFeatures(degree=DEGREE), LinearRegression())
-    model.fit(X, y)
+    inp, out = data.to_pandas()
+    x = inp[["x"]].to_numpy(dtype=float)
+    y = out["y"].to_numpy(dtype=float)
+    model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
+    model.fit(x, y)
     return model
 
 
-_model = _fit_model()
+_MODEL = _fit_model()
 
 
 def predict(x):
-    """Predict stopping distance y (m) for speed x (m/s).
-
-    Accepts a scalar or array-like. Returns a float for scalar input and a
-    numpy array otherwise.
-    """
-    x_arr = np.atleast_1d(np.asarray(x, dtype=float))
-    y_pred = _model.predict(x_arr.reshape(-1, 1))
-    if np.ndim(x) == 0:
-        return float(y_pred[0])
-    return y_pred
+    """Return the predicted stopping distance y for speed(s) x (m/s)."""
+    x_arr = np.asarray(x, dtype=float).reshape(-1, 1)
+    y_hat = _MODEL.predict(x_arr)
+    return float(y_hat[0]) if np.ndim(x) == 0 else y_hat
 
 
 if __name__ == "__main__":
-    for speed in (3, 20, 50, 82):
-        print(f"x = {speed:>3} m/s  ->  predicted y = {predict(speed):.2f} m")
+    for speed in (3.0, 40.0, 82.0):
+        print(f"x = {speed:5.1f} m/s -> predicted y = {predict(speed):8.2f} m")

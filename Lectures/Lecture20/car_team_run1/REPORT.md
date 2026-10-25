@@ -1,11 +1,14 @@
-Both models fitted and independently checked. Deliverables in workspace/results/: fit_M1.py, M1.csv, fit_M2.py, M2.csv, check.md.
+Both models were fitted per PROBLEM_STATEMENT.md and independently rechecked by the checker. The checker's recomputation matches both CSVs to about 2e-16 relative, well inside the 1e-9 tolerance.
 
-Rows (split: 37 train, 13 test, train_test_split random_state=1987):
-- M1: a=1.556793, b=0.100360, s=27.983031, coverage=0.846154 (11/13), nll=4.976150, n_train=37, n_test=13
-- M2: a=1.380403, b=0.103235, c=0.553231, coverage=0.846154 (11/13), nll=4.503771, n_train=37, n_test=13
+Results (split 37 train / 13 test):
+- M1: a = 1.556792744461828, b = 0.1003596848656863, s = 27.98303080695783, coverage = 0.8462 (11/13), nll = 4.976149641475804. Check: PASS.
+- M2: a = 1.3804030477145803, b = 0.10323542514078464, c = 0.5532310661868638, coverage = 0.8462 (11/13), nll = 4.503770939937342. Check: PASS.
 
-Checks: builder reran both scripts (identical output). Checker recomputed both from scratch: PASS for M1 and M2 (spec match, CSV columns, numeric agreement to ~1e-16 relative). Overall PASS.
+Files are in workspace/results/: fit_M1.py, M1.csv, fit_M2.py, M2.csv, check.md. Both CSVs have exactly the required columns and one row each. Evaluations used: 0.
 
-Falsification: the independent recomputation by the checker is the falsification step; it found no discrepancy. Evaluations used: 0 (no ground-truth evaluator calls; no canonical evaluator registered).
+Caveats:
+1. The checker parsed fit_M1.py and fit_M2.py with ast only and did not run them, so it is not verified that the scripts execute from scratch. The builders did run them, and the M1 and M2 builder outputs agree with the checker's recomputation.
+2. The M2 builder overwrote an existing fit_M2.py and M2.csv, and the checker overwrote check.md. The current files are the ones these agents wrote this run.
+3. Coverage is 11/13 for both models on only 13 test points, so it is a coarse estimate.
 
-Remaining uncertainty: with only 13 test points, coverage (11/13) is a coarse estimate. Coverage 0.846 is below the nominal 0.95 for both models. The two models are indistinguishable on coverage; M2 has the lower nll (4.504 vs 4.976) on the same 13 test rows. Model choice from this single split is tentative. Some builder/checker reports contained narrative about earlier replies and tool-call errors that I could not verify; the numerical outputs were consistent across builder and checker.
+Falsification outcome: no separate falsification was run. The checker's independent recomputation is the only cross-check. Remaining uncertainty is the unrun scripts in caveat 1.

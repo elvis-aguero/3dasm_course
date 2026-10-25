@@ -1,63 +1,66 @@
-"""Model M2 of the car stopping-distance problem (see PROBLEM_STATEMENT.md).
+"""Fit model M2 of the car stopping distance, as specified in PROBLEM_STATEMENT.md.
 
-M2: a, b by least squares of y/x on [1, x] (training rows);
-    c = numpy.std of the residuals of y/x (ddof=0);
-    predictive mean a*x + b*x**2, predictive sd c*x.
-Assessment on test rows: coverage of mean +- 1.96 sd, and mean negative log normal density (nll).
-Writes workspace/results/M2.csv (one row).
+M2: a, b by lstsq of y/x on [1, x] (training rows); c = std(residuals of y/x, ddof=0).
+Mean a*x + b*x**2, standard deviation c*x.
+Assessment on test rows: coverage of mean +- 1.96 sd; nll = mean of -log normal density of y.
 """
-
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from f3dasm import ExperimentData
 from sklearn.model_selection import train_test_split
 
-STUDY_DIR = Path(__file__).resolve().parents[2]
-DATA_DIR = STUDY_DIR / "data" / "car_stopping_distance"
-OUT_CSV = Path(__file__).resolve().parent / "M2.csv"
+from f3dasm import ExperimentData
 
+STUDY = Path("/Users/harrislab/Documents/GitHub/3dasm_course/Lectures/Lecture20/car_team_run2")
+DATA = STUDY / "data" / "car_stopping_distance"
+OUT = STUDY / "workspace" / "results" / "M2.csv"
 
-def main():
-    ed = ExperimentData.from_file(str(DATA_DIR))
-    input_df, output_df = ed.to_pandas()
-    x = input_df["x"].to_numpy(dtype=float)
-    y = output_df["y"].to_numpy(dtype=float)
+ed = ExperimentData.from_file(project_dir=DATA)
+inp = ed.to_pandas()[0]
+out = ed.to_pandas()[1]
 
-    idx = np.arange(len(x))
-    train_idx, test_idx = train_test_split(idx, train_size=0.75, random_state=1987)
-    x_tr, y_tr = x[train_idx], y[train_idx]
-    x_te, y_te = x[test_idx], y[test_idx]
+x_all = inp["x"].to_numpy(dtype=float)
+y_all = out["y"].to_numpy(dtype=float)
+idx = np.arange(len(x_all))
 
-    # M2 fit: y/x = a + b*x  ->  y = a*x + b*x**2
-    design_tr = np.column_stack([np.ones_like(x_tr), x_tr])
-    (a, b), *_ = np.linalg.lstsq(design_tr, y_tr / x_tr, rcond=None)
-    c = np.std(y_tr / x_tr - (a + b * x_tr), ddof=0)
+train_idx, test_idx = train_test_split(idx, train_size=0.75, random_state=1987)
+n_train, n_test = len(train_idx), len(test_idx)
 
-    # Test-set assessment
-    mean_te = a * x_te + b * x_te**2
-    sd_te = c * x_te
-    coverage = np.mean(np.abs(y_te - mean_te) <= 1.96 * sd_te)
-    log_density = -0.5 * np.log(2.0 * np.pi * sd_te**2) - (y_te - mean_te) ** 2 / (2.0 * sd_te**2)
-    nll = np.mean(-log_density)
+x_tr, y_tr = x_all[train_idx], y_all[train_idx]
+x_te, y_te = x_all[test_idx], y_all[test_idx]
 
-    row = {
-        "model": "M2",
-        "a": float(a),
-        "b": float(b),
-        "sd_parameter": float(c),
-        "coverage": float(coverage),
-        "nll": float(nll),
-        "n_train": int(len(train_idx)),
-        "n_test": int(len(test_idx)),
-    }
-    pd.DataFrame([row], columns=["model", "a", "b", "sd_parameter", "coverage", "nll", "n_train", "n_test"]).to_csv(
-        OUT_CSV, index=False
-    )
-    print(pd.DataFrame([row]).to_string(index=False))
-    print(f"wrote {OUT_CSV}")
+# M2 coefficients: regress y/x on [1, x]
+X_tr = np.column_stack([np.ones_like(x_tr), x_tr])
+coef, *_ = np.linalg.lstsq(X_tr, y_tr / x_tr, rcond=None)
+b0, b1 = coef  # intercept, slope of y/x on x
+# the statement's a, b: a = intercept, b = slope
+a, b = float(b0), float(b1)
 
+resid = y_tr / x_tr - (a + b * x_tr)
+c = float(np.std(resid, ddof=0))
 
-if __name__ == "__main__":
-    main()
+# Mean a*x + b*x**2 with standard deviation c*x
+mu_te = a * x_te + b * x_te**2
+sd_te = c * x_te
+
+coverage = float(np.mean(np.abs(y_te - mu_te) <= 1.96 * sd_te))
+log_dens = -0.5 * np.log(2 * np.pi) - np.log(sd_te) - 0.5 * ((y_te - mu_te) / sd_te) ** 2
+nll = float(np.mean(-log_dens))
+
+OUT.parent.mkdir(parents=True, exist_ok=True)
+
+row = pd.DataFrame([{
+    "model": "M2",
+    "a": a,
+    "b": b,
+    "sd_parameter": c,
+    "coverage": coverage,
+    "nll": nll,
+    "n_train": n_train,
+    "n_test": n_test,
+}])
+row.to_csv(OUT, index=False)
+
+print(row.to_string(index=False))
+print(f"wrote {OUT}")

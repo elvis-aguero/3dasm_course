@@ -1,30 +1,26 @@
-"""Stopping-distance model for a car at speed x (m/s), x in [3, 82].
+"""Stopping-distance model for a car at speed x (m/s).
 
-Mean:   mu(x) = a*x + b*x^2
-        a = 1.581 s   (effective reaction time: distance covered before braking)
-        b = 0.0982 s^2/m (braking term; implied deceleration 1/(2b) ~ 5.1 m/s^2)
-Spread: sd(x) = k*x,  k = 0.418 (proportional to speed, maximum-likelihood fit)
+mu(x) = a*x^2 + b*x + c            (quadratic mean, fitted by least squares)
+sd(x) = s0 + s1*x                  (linear spread, fitted by Gaussian max. likelihood)
 
-Coefficients were fitted by least squares (mean) and maximum likelihood (spread)
-to 30 Measure() evaluations spread over [3, 82].
+Fitted on 24 Measure() calls spanning x in [3, 82].
 """
 
 import math
 
-A_REACTION = 1.58126704
-B_BRAKING = 0.09821271
-K_SPREAD = 0.41802353
+_A, _B, _C = 0.09636872, 1.74978205, -2.40423506
+_S0, _S1 = 0.42277263, 0.36265372
 
 
-def predict(x):
-    """Return (mu, sd) of the stopping distance y (metres) at speed x (m/s)."""
+def predict(x: float):
+    """Return (mu, sd) of the stopping distance y (m) at speed x (m/s)."""
     x = float(x)
-    mu = A_REACTION * x + B_BRAKING * x * x
-    sd = K_SPREAD * x
+    mu = _A * x * x + _B * x + _C
+    sd = _S0 + _S1 * x
     return mu, sd
 
 
 if __name__ == "__main__":
-    for v in (3, 20, 50, 82):
-        mu, sd = predict(v)
-        print(f"x={v:>3}: mu={mu:8.2f} m, sd={sd:6.2f} m, 95% band=[{mu - 1.96 * sd:8.2f}, {mu + 1.96 * sd:8.2f}]")
+    for v in (3, 20, 40, 60, 82):
+        m, s = predict(v)
+        print(f"x={v:>3}: mu={m:8.2f}  sd={s:6.2f}  95% band=[{m - 1.96*s:8.2f}, {m + 1.96*s:8.2f}]")

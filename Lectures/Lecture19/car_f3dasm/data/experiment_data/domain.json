@@ -19,6 +19,16 @@
             "lower_bound": -Infinity,
             "upper_bound": Infinity,
             "log": false
+        },
+        "y": {
+            "type": "float",
+            "to_disk": false,
+            "store_function": null,
+            "load_function": null,
+            "load_kwargs": null,
+            "lower_bound": -Infinity,
+            "upper_bound": Infinity,
+            "log": false
         }
     },
     "output_space": {
