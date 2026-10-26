@@ -1,9 +1,10 @@
-"""Degree-2 polynomial surrogate for the car stopping distance y(x).
+"""Predict the stopping distance y (m) of a car from its speed x (m/s).
 
-Fitted on the 30-driver Sobol experiment stored in data/ (see make_data.py).
-The reaction time z varies per driver, so the fit describes the average
-stopping distance over drivers.
+A degree-2 polynomial is fitted with scikit-learn to the f3dasm experiment
+data in data/ (30 drivers, each with their own reaction time z).
 """
+
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
@@ -12,29 +13,30 @@ from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import PolynomialFeatures
 
-_DATA_DIR = Path(__file__).resolve().parent / "data"
+DATA_DIR = Path(__file__).resolve().parent / "data"
 
-_data = ExperimentData.from_file(project_dir=_DATA_DIR)
-_x_df, _y_df = _data.to_pandas()
-_X = _x_df[["x"]].to_numpy(dtype=float)
-_y = _y_df["y"].to_numpy(dtype=float)
 
-_model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
-_model.fit(_X, _y)
+@lru_cache(maxsize=None)
+def _fit_model():
+    """Fit y ~ poly2(x) on the stored experiments (fitted once, then cached)."""
+    inputs, outputs = ExperimentData.from_file(project_dir=DATA_DIR).to_pandas()
+    x = inputs[["x"]].to_numpy(dtype=float)
+    y = outputs["y"].to_numpy(dtype=float)
+    model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
+    model.fit(x, y)
+    return model
 
 
 def predict(x):
-    """Predicted stopping distance y (m) for speed x (m/s).
+    """Return the predicted stopping distance y (m) for speed(s) x (m/s).
 
-    Accepts a scalar or array-like of speeds; returns a float for a scalar
-    input and a 1-D numpy array otherwise.
+    A scalar gives a float; an array-like gives a numpy array of the same shape.
     """
     x_arr = np.asarray(x, dtype=float)
-    scalar = x_arr.ndim == 0
-    y_hat = _model.predict(x_arr.reshape(-1, 1)).ravel()
-    return float(y_hat[0]) if scalar else y_hat
+    y_hat = _fit_model().predict(x_arr.reshape(-1, 1)).reshape(x_arr.shape)
+    return float(y_hat) if x_arr.ndim == 0 else y_hat
 
 
 if __name__ == "__main__":
-    for speed in (3.0, 40.0, 82.0):
-        print(f"x={speed:5.1f} m/s -> y={predict(speed):8.2f} m")
+    for speed in (3.0, 20.0, 50.0, 82.0):
+        print(f"x = {speed:5.1f} m/s -> y = {predict(speed):8.2f} m")
